@@ -1,15 +1,15 @@
 .initial <- function() {
-    assign(".meshsimEnv", new.env(), .GlobalEnv)
+    assign(".meshesEnv", new.env(), .GlobalEnv)
     tryCatch(utils::data(list="meshtbl",
-                         package = "meshsim"))
+                         package = "meshes"))
     meshtbl <- get("meshtbl")
-    assign("meshtbl", meshtbl, envir = .meshsimEnv)
+    assign("meshtbl", meshtbl, envir = .meshesEnv)
     rm(meshtbl, envir=.GlobalEnv)
 }
 
-##' .. content for \description{} (no empty lines) ..
+##' construct annoData for semantic measurement
 ##'
-##' .. content for \details{} ..
+##' 
 ##' @title meshdata
 ##' @param MeSHDb MeSHDb package 
 ##' @param database one of supported database
@@ -19,6 +19,7 @@
 ##' @importFrom AnnotationDbi metadata
 ##' @importFrom AnnotationDbi keys
 ##' @importFrom methods new
+##' @importClassesFrom GOSemSim GOSemSimDATA
 ##' @export
 ##' @author Guangchuang Yu 
 meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
@@ -51,10 +52,10 @@ meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
     return(res)
 }
 
-##' @importFrom MeSH.AOR.db MeSH.AOR.db
+## @importFrom MeSH.AOR.db MeSH.AOR.db
 ##' @importFrom AnnotationDbi select
 computeIC <- function(meshAnno, category) {
-    meshdata <- get("meshtbl", envir=.meshsimEnv)
+    meshdata <- get("meshtbl", envir=.meshesEnv)
     meshids <- unique(meshdata[meshdata$Ontology == category, "meshID"])
 
     meshterms <- meshAnno$MESHID
@@ -80,7 +81,7 @@ computeIC <- function(meshAnno, category) {
 }
 
 getOffsprings <- function(meshID) {
-    meshtbl <- get("meshtbl", envir=.meshsimEnv)
+    meshtbl <- get("meshtbl", envir=.meshesEnv)
     res <- c()
     id <- meshID
     while(any(id %in% meshtbl$parent)) {
@@ -92,7 +93,7 @@ getOffsprings <- function(meshID) {
 }
 
 getAncestors <- function(meshID) {
-    meshtbl <- get("meshtbl", envir=.meshsimEnv)
+    meshtbl <- get("meshtbl", envir=.meshesEnv)
     res <- c()
     id <- meshID
     while(any(id %in% meshtbl$meshID)) {

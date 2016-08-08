@@ -1,15 +1,28 @@
-Package: meshsim
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Package: meshes
+Title: MeSH Enrichment and Semantic analyses
+Version: 0.0.1
+Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
+Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
+	     MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
+	     This association is fundamental for enrichment and semantic analyses.
+	     meshes supports enrichment analysis (over-representation and gene set enrichment analysis) of gene list or whole expression profile.
+	     The semantic comparisons of MeSH terms provide quantitative ways to compute similarities between genes and gene groups.
+	     meshes implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports more than 70 species.
 Depends:
     R (>= 3.3.1)
 Imports:
     AnnotationDbi,
     GOSemSim (>= 1.99.3),
     methods
-License: What license is it under?
+Suggests:
+    knitr
+VignetteBuilder: knitr
+ByteCompile: true
+License: Artistic-2.0
+URL: https://guangchuangyu.github.io/meshes
+BugReports: https://github.com/GuangchuangYu/meshes/issues
+biocViews: Annotation, Bioinformatics, Clustering, FunctionalAnnotation,
+	   MeSHDb, MultipleComparisons, Software, Statistics
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1

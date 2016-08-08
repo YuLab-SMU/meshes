@@ -19,10 +19,7 @@ meshdata(MeSHDb = NULL, database, category, computeIC = FALSE)
 a GOSemSimDATA object
 }
 \description{
-.. content for \description{} (no empty lines) ..
-}
-\details{
-.. content for \details{} ..
+construct annoData for semantic measurement
 }
 \author{
 Guangchuang Yu
