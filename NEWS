@@ -1,0 +1,10 @@
+CHANGES IN VERSION 0.99.0
+------------------------
+ o add vignette <2016-08-11, Thu>
+ o enrichMeSH and gseMeSH <2016-08-11, Thu>
+   + move from clusterProfiler
+ 
+CHANGES IN VERSION 0.0.1
+------------------------
+ o geneSim <2016-08-10, Wed>
+ o meshSim <2016-08-05, Fri>

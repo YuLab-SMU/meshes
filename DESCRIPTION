@@ -1,6 +1,6 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 0.0.1
+Version: 0.99.0
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
 	     MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
@@ -12,10 +12,13 @@ Depends:
     R (>= 3.3.1)
 Imports:
     AnnotationDbi,
+    DOSE,
     GOSemSim (>= 1.99.3),
     methods
 Suggests:
-    knitr
+    knitr,
+    MeSHDb,
+    MeSH.Hsa.eg.db
 VignetteBuilder: knitr
 ByteCompile: true
 License: Artistic-2.0

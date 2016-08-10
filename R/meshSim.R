@@ -1,19 +1,32 @@
+##' semantic similarity between two MeSH term vectors
+##'
+##' 
+##' @title meshSim
+##' @param meshID1 MeSH term vector 
+##' @param meshID2 MeSH term vector 
+##' @param measure one of "Wang", "Resnik", "Rel", "Jiang" and "Lin"
+##' @param semData annotation data for semantic measurement, output by meshdata function 
+##' @return score matrix
+##' @importFrom GOSemSim termSim
+##' @export
+##' @author Guangchuang Yu \url{https://guangchuangyu.github.io}
 meshSim <- function(meshID1,
                     meshID2,
                     measure = "Wang",
-                    meshdata) {
-    scores <- termSim(meshID1, meshID2, meshdata, measure)
+                    semData) {
+    scores <- termSim(meshID1, meshID2, semData, measure)
     if(nrow(scores) == 1 & ncol(scores) == 1)
         scores <- as.numeric(scores)
     return(scores)
 }
 
-termSim <- GOSemSim::termSim
+
 
 
 ## currently work
 ##
 ## library(GOSemSim)
 ## library(meshsim)
-## md = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gene2pubmed")
-## meshSim("D000009", "D009130", meshdata=md, measure="Resnik")
+## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+## save(hsamd, file='hsamd.rda', compress='xz')
+## meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")

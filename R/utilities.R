@@ -20,6 +20,7 @@
 ##' @importFrom AnnotationDbi keys
 ##' @importFrom methods new
 ##' @importClassesFrom GOSemSim GOSemSimDATA
+##' @importFrom GOSemSim load_OrgDb
 ##' @export
 ##' @author Guangchuang Yu 
 meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
@@ -37,18 +38,21 @@ meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
     
     kk <- as.character(keys(MeSHDb, keytype="GENEID"))
 
-    meshAnno <- select(MeSHDb, keys=kk, keytype="GENEID", columns = c("MESHCATEGORY", "MESHID", "SOURCEDB"))
+    meshAnno <- select(MeSHDb, keys=kk, keytype="GENEID", columns = c("GENEID", "MESHCATEGORY", "MESHID", "SOURCEDB"))
     meshAnno <- meshAnno[meshAnno$SOURCEDB %in% database,]
     meshAnno <- meshAnno[meshAnno$MESHCATEGORY == category, ]
 
     res <- new("GOSemSimDATA",
                keys = kk,
                ont = category,
-               metadata = metadata(MeSHDb))
+               geneAnno = meshAnno,
+               metadata = metadata(MeSHDb)
+               )
+    
     if (computeIC) {
         res@IC = computeIC(meshAnno, category)
     }
-
+    
     return(res)
 }
 
@@ -104,4 +108,4 @@ getAncestors <- function(meshID) {
     return(unique(res))
 }
 
-load_OrgDb <- GOSemSim:::load_OrgDb
+
