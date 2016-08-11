@@ -10,6 +10,11 @@
 ##' @importFrom GOSemSim combineScores
 ##' @return score matrix
 ##' @export
+##' @examples
+##' library(meshes)
+##' ## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+##' data(hsamd)
+##' geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
 ##' @author Guangchuang Yu 
 geneSim <- function(geneID1,
                     geneID2=NULL,

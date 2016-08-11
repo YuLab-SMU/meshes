@@ -21,6 +21,13 @@ score matrix
 \description{
 semantic similarity between two MeSH term vectors
 }
+\examples{
+\dontrun{
+library(meshsim)
+hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
+}
+}
 \author{
 Guangchuang Yu \url{https://guangchuangyu.github.io}
 }

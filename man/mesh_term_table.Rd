@@ -2,6 +2,7 @@
 % Please edit documentation in R/meshes.R
 \docType{data}
 \name{mesh_term_table}
+\alias{hsamd}
 \alias{mesh_term_table}
 \alias{meshtbl}
 \title{DATA Sets}

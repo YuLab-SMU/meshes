@@ -9,6 +9,11 @@
 ##' @return score matrix
 ##' @importFrom GOSemSim termSim
 ##' @export
+##' @examples
+##' library(meshsim)
+##' ## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+##' data(hsamd)
+##' meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
 ##' @author Guangchuang Yu \url{https://guangchuangyu.github.io}
 meshSim <- function(meshID1,
                     meshID2,
@@ -20,13 +25,3 @@ meshSim <- function(meshID1,
     return(scores)
 }
 
-
-
-
-## currently work
-##
-## library(GOSemSim)
-## library(meshsim)
-## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
-## save(hsamd, file='hsamd.rda', compress='xz')
-## meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")

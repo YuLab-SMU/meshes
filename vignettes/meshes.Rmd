@@ -17,7 +17,7 @@ vignette: >
   % \VignetteIndexEntry{An introduction to meshes}
   % \VignetteEngine{knitr::rmarkdown}
   %\VignetteDepends{MeSH.Hsa.eg.db}
-  %\VignetteDepends{MeSHDb}  
+  %\VignetteDepends{MeSH.db}  
   % \usepackage[utf8]{inputenc}
 ---
 
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(tidy = FALSE,
 
 ```{r echo=FALSE, results="hide", message=FALSE}
 library(MeSH.Hsa.eg.db)
-library(MeSHDb)
+library(MeSH.db)
 library(DOSE)
 library(meshes)
 ```
@@ -194,14 +194,16 @@ geneSim(c("241", "251"), c("835", "5261","241", "994"), semData=hsamd, measure="
 
 # Related tools
 
-+ Enrichment analysis
-  - `r Biocpkg("DOSE")`[@yu_dose_2015]
-  - `r Biocpkg("clusterProfiler")`[@yu2012]
-  - `r Biocpkg("ReactomePA")`[@yu_reactomepa_2016]
+## Enrichment analysis
   
-+ Semantic similairty measurement
-  - `r Biocpkg("GOSemSim")`[@yu2010]
-  - `r Biocpkg("DOSE")`[@yu_dose_2015]
+- `r Biocpkg("DOSE")`[@yu_dose_2015]
+- `r Biocpkg("clusterProfiler")`[@yu2012]
+- `r Biocpkg("ReactomePA")`[@yu_reactomepa_2016]
+  
+## Semantic similairty measurement
+
+- `r Biocpkg("GOSemSim")`[@yu2010]
+- `r Biocpkg("DOSE")`[@yu_dose_2015]
   
 
 # Session Information

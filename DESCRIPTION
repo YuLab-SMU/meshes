@@ -12,12 +12,13 @@ Depends:
     R (>= 3.3.1)
 Imports:
     AnnotationDbi,
-    DOSE,
+    DOSE (>= 2.11.7),
     GOSemSim (>= 1.99.3),
+    MeSH.db,    
     methods
 Suggests:
+    BiocStyle,
     knitr,
-    MeSHDb,
     MeSH.Hsa.eg.db
 VignetteBuilder: knitr
 ByteCompile: true

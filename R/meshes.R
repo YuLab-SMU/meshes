@@ -4,7 +4,7 @@
 ##'
 ##'
 ##'@name mesh_term_table
-##'@aliases meshtbl
+##'@aliases meshtbl hsamd
 ##'@docType data
 ##'@keywords datasets
 NULL
