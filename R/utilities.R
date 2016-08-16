@@ -1,5 +1,9 @@
 .initial <- function() {
-    assign(".meshesEnv", new.env(), .GlobalEnv)
+    pos <- 1
+    envir <- as.environment(pos) 
+    
+    assign(".meshesEnv", new.env(), envir = envir)
+    .meshesEnv <- get(".meshesEnv", envir = .GlobalEnv)
     tryCatch(utils::data(list="meshtbl",
                          package = "meshes"))
     meshtbl <- get("meshtbl")

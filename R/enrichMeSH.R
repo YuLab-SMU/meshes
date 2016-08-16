@@ -17,7 +17,6 @@
 ##' @importFrom MeSH.db MeSH.db
 ##' @export
 ##' @examples
-##' library(meshes)
 ##' data(geneList, package="DOSE")
 ##' de <- names(geneList)[1:100]
 ##' x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C')

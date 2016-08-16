@@ -11,7 +11,6 @@
 ##' @return score matrix
 ##' @export
 ##' @examples
-##' library(meshes)
 ##' ## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
 ##' data(hsamd)
 ##' geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
@@ -21,6 +20,9 @@ geneSim <- function(geneID1,
                     measure="Wang",
                     combine="BMA",
                     semData) {
+
+    if (!exists(".meshesEnv")) .initial()
+    
     meshid1 <- lapply(geneID1, gene2MeSH, semData=semData)
     if (is.null(geneID2)) {
         geneID2 <- geneID1
@@ -34,7 +36,7 @@ geneSim <- function(geneID1,
     scores <- matrix(NA, nrow=m, ncol=n)
     rownames(scores) <- geneID1
     colnames(scores) <- geneID2
-
+    
     for (i in 1:m) {
         if (length(geneID1) == length(geneID2) && all(geneID1 == geneID2)) {
            nn <- i

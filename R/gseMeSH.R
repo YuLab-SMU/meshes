@@ -19,7 +19,6 @@
 ##' @export
 ##' @return gseaResult object
 ##' @examples
-##' library(meshes)
 ##' data(geneList, package="DOSE")
 ##' ## y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
 ##' @author Yu Guangchuang

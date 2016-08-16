@@ -25,11 +25,9 @@ score matrix
 semantic similarity between two gene vector
 }
 \examples{
-\dontrun{
-library(meshes)
-hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+data(hsamd)
 geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
-}
 }
 \author{
 Guangchuang Yu
