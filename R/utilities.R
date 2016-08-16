@@ -26,6 +26,8 @@
 ##' @importClassesFrom GOSemSim GOSemSimDATA
 ##' @importFrom GOSemSim load_OrgDb
 ##' @export
+##' @examples
+##' meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed")
 ##' @author Guangchuang Yu 
 meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
     if (is.null(MeSHDb)) {

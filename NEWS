@@ -1,5 +1,6 @@
 CHANGES IN VERSION 0.99.1
 ------------------------
+ o all exported functions have runnable examples required by BiocCheck <2016-08-16, Tue>
  o R check passed <2016-08-16, Tue>
  
 CHANGES IN VERSION 0.99.0

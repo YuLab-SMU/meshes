@@ -21,6 +21,9 @@ a GOSemSimDATA object
 \description{
 construct annoData for semantic measurement
 }
+\examples{
+meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed")
+}
 \author{
 Guangchuang Yu
 }
