@@ -1,6 +1,6 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 0.99.4
+Version: 0.99.5
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
 	     MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
@@ -26,8 +26,7 @@ ByteCompile: true
 License: Artistic-2.0
 URL: https://guangchuangyu.github.io/meshes
 BugReports: https://github.com/GuangchuangYu/meshes/issues
-biocViews: Annotation, Bioinformatics, Clustering, FunctionalAnnotation,
-	   MeSHDb, MultipleComparisons, Software, Statistics
+biocViews: Annotation, Clustering, MultipleComparison, Software
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
