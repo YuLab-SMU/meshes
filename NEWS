@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.99.6
+------------------------
+ o update docs <2016-09-19, Mon>
+ 
 CHANGES IN VERSION 0.99.3
 ------------------------
  o remove non-ASCII character in vignettes/meshes.bib <2016-08-16, Tue>

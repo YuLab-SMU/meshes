@@ -43,4 +43,7 @@ x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C'
 \author{
 Guangchuang Yu
 }
+\seealso{
+\code{class?enrichResult}
+}
 

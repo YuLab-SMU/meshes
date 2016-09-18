@@ -10,7 +10,7 @@
 ##' @importFrom GOSemSim termSim
 ##' @export
 ##' @examples
-##' ## hsamd = meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+##' ## hsamd <- meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
 ##' data(hsamd)
 ##' meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
 ##' @author Guangchuang Yu \url{https://guangchuangyu.github.io}

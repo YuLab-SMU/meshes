@@ -16,6 +16,7 @@
 ##' @importClassesFrom DOSE enrichResult
 ##' @importFrom MeSH.db MeSH.db
 ##' @export
+##' @seealso \code{class?enrichResult}
 ##' @examples
 ##' data(geneList, package="DOSE")
 ##' de <- names(geneList)[1:100]
