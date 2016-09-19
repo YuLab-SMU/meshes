@@ -19,7 +19,7 @@ install:
 # Adapt as necessary starting from here
 
 build_script:
-  - travis-tool.sh install_bioc BiocStyle AnnotationDbi GOSemSim DOSE MeSH.Hsa.eg.db MeSH.db
+  - travis-tool.sh install_bioc BiocStyle AnnotationDbi GOSemSim DOSE MeSH.Hsa.eg.db MeSH.db MeSH.Cel.eg.db
   - travis-tool.sh install_deps
 
 test_script:
