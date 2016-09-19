@@ -26,7 +26,8 @@ bioc_packages:
     - GOSemSim
     - MeSH.Hsa.eg.db
     - MeSH.db
-
+    - MeSH.Cel.eg.db
+    
 after_failure:
   - ./travis-tool.sh dump_logs
 
