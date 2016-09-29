@@ -9,12 +9,12 @@ Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary us
 	     The semantic comparisons of MeSH terms provide quantitative ways to compute similarities between genes and gene groups.
 	     meshes implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports more than 70 species.
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.3.1),
+    DOSE (>= 2.11.7)
 Imports:
     AnnotationDbi,
-    DOSE (>= 2.11.7),
     GOSemSim (>= 1.99.3),
-    MeSH.db,    
+    MeSH.db,
     methods
 Suggests:
     BiocStyle,
