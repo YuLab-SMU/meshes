@@ -1,0 +1,218 @@
+---
+title: "MeSH Enrichment and Semantic Analyses"
+author: "\\
+
+	Guangchuang Yu (<guangchuangyu@gmail.com>)\\
+
+        School of Public Health, The University of Hong Kong"
+date: "`r Sys.Date()`"
+bibliography: meshes.bib
+csl: nature.csl
+output: 
+  BiocStyle::html_document:
+    toc: true
+  BiocStyle::pdf_document:
+    toc: true
+vignette: >
+  % \VignetteIndexEntry{An introduction to meshes}
+  % \VignetteEngine{knitr::rmarkdown}
+  %\VignetteDepends{MeSH.Hsa.eg.db}
+  %\VignetteDepends{MeSH.db}  
+  % \usepackage[utf8]{inputenc}
+---
+
+```{r style, echo=FALSE, results="asis", message=FALSE}
+BiocStyle::markdown()
+knitr::opts_chunk$set(tidy = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r echo=FALSE, results="hide", message=FALSE}
+library(MeSH.Hsa.eg.db)
+library(MeSH.db)
+library(DOSE)
+library(meshes)
+```
+
+# Introduction
+
+
+MeSH (Medical Subject Headings) is the NLM (U.S. National Library of
+Medicine) controlled vocabulary used to manually index articles for
+MEDLINE/PubMed. MeSH is comprehensive life science vocabulary. MeSH has
+19 categories and `MeSH.db` contains 16 of them. That is:
+
+<table>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>Anatomy</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>Organisms</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>Diseases</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>Chemicals and Drugs</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>Analytical, Diagnostic and Therapeutic Techniques and Equipment</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>Psychiatry and Psychology</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>Phenomena and Processes</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>Disciplines and Occupations</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>Anthropology, Education, Sociology and Social Phenomena</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>Technology and Food and Beverages</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>Humanities</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>Information Science</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>Persons</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>Health Care</td>
+</tr>
+<tr class="odd">
+<td>V</td>
+<td>Publication Type</td>
+</tr>
+<tr class="even">
+<td>Z</td>
+<td>Geographical Locations</td>
+</tr>
+</tbody>
+</table>
+
+MeSH terms were associated with Entrez Gene ID by three methods,
+`gendoo`, `gene2pubmed` and `RBBH` (Reciprocal Blast Best Hit).
+
+|Method|Way of corresponding Entrez Gene IDs and MeSH IDs|
+|------|-------------------------------------------------|
+|Gendoo|Text-mining|
+|gene2pubmed|Manual curation by NCBI teams|
+|RBBH|sequence homology with BLASTP search (E-value<10<sup>-50</sup>)|
+
+
+# Enrichment Analysis
+
+`meshes` supports enrichment analysis (over-representation analysis and gene set
+enrichment analysis) of gene list or whole expression profile using MeSH
+annotation. Data source from `gendoo`, `gene2pubmed` and `RBBH` are all
+supported. User can selecte interesting category to test. All 16
+categories are supported. The analysis supports >70 species listed in [MeSHDb BiocView](https://bioconductor.org/packages/release/BiocViews.html#___MeSHDb).
+
+For algorithm details, please refer to the vignettes of `r Biocpkg("DOSE")`[@yu_dose_2015] package.
+
+```{r}
+library(meshes)
+data(geneList, package="DOSE")
+de <- names(geneList)[1:100]
+x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C')
+head(x)
+```
+
+
+In the over-representation analysis, we use data source from `gendoo` and `C` (Diseases) category.
+
+In the following example, we use data source from `gene2pubmed` and test category `G` (Phenomena and Processes) using GSEA.
+
+```{r}
+y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+head(y)
+```
+
+User can use visualization methods implemented in [DOSE](https://guangchuangyu.github.io/DOSE) (i.e.`barplot`, `dotplot`, `cnetplot`, `enrichMap`, `upsetplot` and `gseaplot`) to visualize these enrichment results. With these visualization methods, it's much easier to interpret enriched results.
+
+
+```{r}
+dotplot(x)
+gseaplot(y, y[1,1], title=y[1,2])
+```
+
+# Semantic Similarity
+
+`meshes` implemented four IC-based methods (i.e. Resnik[@philip_semantic_1999], Jiang[@jiang_semantic_1997],
+Lin[@lin_information-theoretic_1998] and Schlicker[@schlicker_new_2006]) and one graph-structure based method (i.e. Wang[@wang_new_2007]). For algorithm details, please refer to the vignette of `r Biocpkg("GOSemSim")` package[@yu2010] 
+
+
+`meshSim` function is designed to measure semantic similarity between two MeSH term vectors.
+
+```{r}
+library(meshes)
+## hsamd <- meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+data(hsamd)
+meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
+meshSim("D000009", "D009130", semData=hsamd, measure="Rel")
+meshSim("D000009", "D009130", semData=hsamd, measure="Jiang")
+meshSim("D000009", "D009130", semData=hsamd, measure="Wang")
+
+meshSim(c("D001369", "D002462"), c("D017629", "D002890", "D008928"), semData=hsamd, measure="Wang")
+```
+
+`geneSim` function is designed to measure semantic similarity among two gene vectors.
+
+```{r}
+geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
+geneSim(c("241", "251"), c("835", "5261","241", "994"), semData=hsamd, measure="Wang", combine="BMA")
+```
+
+
+# Related tools
+
+## Enrichment analysis
+  
+- `r Biocpkg("DOSE")`[@yu_dose_2015]
+- `r Biocpkg("clusterProfiler")`[@yu2012]
+- `r Biocpkg("ReactomePA")`[@yu_reactomepa_2016]
+  
+## Semantic similairty measurement
+
+- `r Biocpkg("GOSemSim")`[@yu2010]
+- `r Biocpkg("DOSE")`[@yu_dose_2015]
+  
+
+# Session Information
+
+Here is the output of `sessionInfo()` on the system on which this document was compiled:
+
+```{r echo=FALSE}
+sessionInfo()
+```
+
+# References
+
