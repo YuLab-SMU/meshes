@@ -2,12 +2,16 @@ Package: meshes
 Title: MeSH Enrichment and Semantic analyses
 Version: 0.99.7
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
-Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
-	     MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
+Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
+	     used to manually index articles for MEDLINE/PubMed. MeSH terms were
+	     associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
 	     This association is fundamental for enrichment and semantic analyses.
-	     meshes supports enrichment analysis (over-representation and gene set enrichment analysis) of gene list or whole expression profile.
-	     The semantic comparisons of MeSH terms provide quantitative ways to compute similarities between genes and gene groups.
-	     meshes implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports more than 70 species.
+	     meshes supports enrichment analysis (over-representation and gene set
+	     enrichment analysis) of gene list or whole expression profile.
+	     The semantic comparisons of MeSH terms provide quantitative ways to compute
+	     similarities between genes and gene groups. meshes implemented five methods
+	     proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports
+	     more than 70 species.
 Depends:
     R (>= 3.3.1),
     DOSE (>= 2.11.7)
