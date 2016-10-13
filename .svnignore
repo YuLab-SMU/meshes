@@ -1,4 +1,5 @@
 .git
+.gitignore
 .Rhistory
 Makefile
 appveyor.yml
