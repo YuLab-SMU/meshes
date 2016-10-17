@@ -15,10 +15,10 @@
 
 <link rel="stylesheet" href="https://guangchuangyu.github.io/css/font-awesome.min.css">
 
-[![releaseVersion](https://img.shields.io/badge/release%20version-1.4.20-blue.svg?style=flat)](https://bioconductor.org/packages/ggtree)
-[![develVersion](https://img.shields.io/badge/devel%20version-0.99.7-blue.svg?style=flat)](https://github.com/GuangchuangYu/ggtree)
-[![total](https://img.shields.io/badge/downloads-15283/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/ggtree)
-[![month](https://img.shields.io/badge/downloads-1678/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/ggtree)
+[![releaseVersion](https://img.shields.io/badge/release%20version-0.99.7-blue.svg?style=flat)](https://bioconductor.org/packages/meshes)
+[![develVersion](https://img.shields.io/badge/devel%20version-0.99.7-blue.svg?style=flat)](https://github.com/GuangchuangYu/meshes)
+[![total](https://img.shields.io/badge/downloads-NA/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
+[![month](https://img.shields.io/badge/downloads-NA/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
 
 
 MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
