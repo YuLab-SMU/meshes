@@ -30,7 +30,7 @@ library("ypages")
 [![Build Status](http://www.bioconductor.org/shields/build/devel/bioc/meshes.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/meshes/)
 [![Linux/Mac Travis Build Status](https://img.shields.io/travis/GuangchuangYu/meshes/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/GuangchuangYu/meshes)
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/Guangchuangyu/meshes/master.svg?label=Windows)](https://ci.appveyor.com/project/GuangchuangYu/meshes)
-[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-green.svg?style=flat)](http://bioconda.github.io/recipes/bioconductor-meshes/README.html)
+
 
 
 
