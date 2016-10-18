@@ -91,6 +91,11 @@
             "title": "DOSE"
         }, 
         {
+            "location": "/emojifont/", 
+            "text": "", 
+            "title": "emojifont"
+        }, 
+        {
             "location": "/ggtree/", 
             "text": "", 
             "title": "ggtree"
