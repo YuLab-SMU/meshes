@@ -27,6 +27,7 @@
 
 ### <i class="fa fa-angle-double-right"></i> News and updates
 
++ [BioC 3.4: NEWS of my BioC packages](https://guangchuangyu.github.io/2016/10/bioc-34-news-of-my-bioc-packages)
 
 ### <i class="fa fa-angle-double-right"></i> Enrichment analysis
 
