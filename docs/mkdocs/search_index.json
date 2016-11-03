@@ -47,7 +47,7 @@
         }, 
         {
             "location": "/documentation/", 
-            "text": "Vignettes\n\n\n\n\nGOSemSim: An introduction to GOSemSim\n\n\nDOSE: Disease enrichment analysis\n\n\nDOSE: Disease GSEA\n\n\nAn introduction to meshes\n\n\n\n\n Blog posts\n\n\n News and updates\n\n\n\n\nBioC 3.4: NEWS of my BioC packages\n\n\n\n\n Enrichment analysis\n\n\n\n\nfunctional enrichment analysis with NGS data\n\n\nleading edge analysis\n\n\nUsing meshes for MeSH enrichment analysis\n\n\n\n\n Visualization\n\n\n\n\ndotplot for enrichment result\n\n\nenrichment map\n\n\n\n\n Find out more on \nhttps://guangchuangyu.github.io/tags/meshes\n.", 
+            "text": "Vignettes\n\n\n\n\nGOSemSim: An introduction to GOSemSim\n\n\nDOSE: Disease enrichment analysis\n\n\nDOSE: Disease GSEA\n\n\nAn introduction to meshes\n\n\n\n\n Blog posts\n\n\n News and updates\n\n\n\n\nBioC 3.4: NEWS of my BioC packages\n\n\n\n\n Enrichment analysis\n\n\n\n\nfunctional enrichment analysis with NGS data\n\n\nleading edge analysis\n\n\nUsing meshes for MeSH enrichment analysis\n\n\n\n\n Visualization\n\n\n\n\ndotplot for enrichment result\n\n\nenrichment map\n\n\nshowCategory parameter for visualizing compareCluster output\n\n\n\n\n Find out more on \nhttps://guangchuangyu.github.io/tags/meshes\n.", 
             "title": "Documentation"
         }, 
         {
@@ -72,7 +72,7 @@
         }, 
         {
             "location": "/documentation/#visualization", 
-            "text": "dotplot for enrichment result  enrichment map    Find out more on  https://guangchuangyu.github.io/tags/meshes .", 
+            "text": "dotplot for enrichment result  enrichment map  showCategory parameter for visualizing compareCluster output    Find out more on  https://guangchuangyu.github.io/tags/meshes .", 
             "title": " Visualization"
         }, 
         {
