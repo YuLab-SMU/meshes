@@ -4,3 +4,4 @@ Makefile
 ^.*\.DS_Store
 .travis.yml
 appveyor.yml
+.svnignore
