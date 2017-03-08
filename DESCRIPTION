@@ -19,7 +19,8 @@ Imports:
     AnnotationDbi,
     GOSemSim (>= 1.99.3),
     MeSH.db,
-    methods
+    methods,
+    rvcheck
 Suggests:
     BiocStyle,
     knitr,

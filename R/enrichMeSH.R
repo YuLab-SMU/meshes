@@ -1,6 +1,6 @@
 ##' MeSH term enrichment analysis
 ##'
-##' 
+##'
 ##' @title enrichMeSH
 ##' @param gene a vector of entrez gene id
 ##' @param MeSHDb MeSHDb
@@ -34,7 +34,7 @@ enrichMeSH <- function(gene,
                        maxGSSize = 500) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
-    
+
     res <- enricher_internal(gene,
                              pvalueCutoff=pvalueCutoff,
                              pAdjustMethod=pAdjustMethod,
@@ -44,33 +44,33 @@ enrichMeSH <- function(gene,
                              maxGSSize = maxGSSize,
                              USER_DATA = MeSH_DATA
                              )
-    
+
     meshdb <- MeSH.db
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
     res@organism <- get_organism(MeSHDb)
     res@ontology <- "MeSH"
-    
+
     return(res)
 }
 
-
+##' @importFrom rvcheck get_fun_from_pkg
 get_MeSH_data <- function(MeSHDb, database, category) {
     category <- toupper(category)
     categories <- c("A", "B", "C", "D",
                     "E", "F", "G", "H",
                     "I", "J", "K", "L",
                     "M", "N", "V", "Z")
-    
+
     if (!all(category %in% categories)) {
         stop("please check your 'category' parameter...")
     }
-    
+
     db <- get_fun_from_pkg(MeSHDb, MeSHDb)
     mesh <- select(db, keys=database, columns = c("GENEID", "MESHID","MESHCATEGORY"), keytype = "SOURCEDB")
 
-    mesh <- mesh[ mesh[,3] %in% category, ] 
+    mesh <- mesh[ mesh[,3] %in% category, ]
     mesh2gene <- mesh[, c(2,1)]
 
     ## meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
@@ -82,4 +82,4 @@ get_MeSH_data <- function(MeSHDb, database, category) {
 
 
 
-                       
+
