@@ -202,15 +202,14 @@
 <!-- AddToAny BEGIN -->
 
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+
 <a class="a2a_dd" href="//www.addtoany.com/share"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
+<a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a>
 <a class="a2a_button_google_plus"></a>
-<a class="a2a_button_pinterest"></a>
-<a class="a2a_button_reddit"></a>
-<a class="a2a_button_sina_weibo"></a>
-<a class="a2a_button_wechat"></a>
+<a class="a2a_button_pinterest"></a> <a class="a2a_button_reddit"></a>
+<a class="a2a_button_sina_weibo"></a> <a class="a2a_button_wechat"></a>
 <a class="a2a_button_douban"></a>
+
 </div>
 
 <script async src="//static.addtoany.com/menu/page.js"></script>
@@ -219,22 +218,29 @@
 
 <p><link rel="stylesheet" href="https://guangchuangyu.github.io/css/font-awesome.min.css"></p>
 <p><a href="https://bioconductor.org/packages/meshes"><img alt="releaseVersion" src="https://img.shields.io/badge/release%20version-1.0.0-blue.svg?style=flat" /></a>
-<a href="https://github.com/GuangchuangYu/meshes"><img alt="develVersion" src="https://img.shields.io/badge/devel%20version-1.1.0-blue.svg?style=flat" /></a>
-<a href="https://bioconductor.org/packages/stats/bioc/meshes"><img alt="total" src="https://img.shields.io/badge/downloads-305/total-blue.svg?style=flat" /></a>
-<a href="https://bioconductor.org/packages/stats/bioc/meshes"><img alt="month" src="https://img.shields.io/badge/downloads-121/month-blue.svg?style=flat" /></a></p>
-<p>MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed.
-MeSH terms were associated by Entrez Gene ID by three methods, <code>gendoo</code>, <code>gene2pubmed</code> and <code>RBBH</code>.
+<a href="https://github.com/guangchuangyu/meshes"><img alt="develVersion" src="https://img.shields.io/badge/devel%20version-1.1.0-blue.svg?style=flat" /></a>
+<a href="https://bioconductor.org/packages/stats/bioc/meshes"><img alt="total" src="https://img.shields.io/badge/downloads-339/total-blue.svg?style=flat" /></a>
+<a href="https://bioconductor.org/packages/stats/bioc/meshes"><img alt="month" src="https://img.shields.io/badge/downloads-67/month-blue.svg?style=flat" /></a></p>
+<p>MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to
+manually index articles for MEDLINE/PubMed. MeSH terms were associated
+by Entrez Gene ID by three methods, <code>gendoo</code>, <code>gene2pubmed</code> and <code>RBBH</code>.
 This association is fundamental for enrichment and semantic analyses.
-<code>meshes</code> supports enrichment analysis (over-representation and gene set enrichment analysis) of gene list or whole expression profile.
-The semantic comparisons of MeSH terms provide quantitative ways to
-compute similarities between genes and gene groups. meshes implemented five
-methods proposed by <code>Resnik</code>, <code>Schlicker</code>, <code>Jiang</code>, <code>Lin</code> and <code>Wang</code> respectively and
-supports more than 70 species.</p>
-<p><code>meshes</code> is released within the <a href="https://bioconductor.org/packages/meshes/">Bioconductor</a> project and the source code is hosted on <a href="https://github.com/GuangchuangYu/meshes"><i class="fa fa-github fa-lg"></i> GitHub</a>.</p>
+<code>meshes</code> supports enrichment analysis (over-representation and gene set
+enrichment analysis) of gene list or whole expression profile. The
+semantic comparisons of MeSH terms provide quantitative ways to compute
+similarities between genes and gene groups. meshes implemented five
+methods proposed by <code>Resnik</code>, <code>Schlicker</code>, <code>Jiang</code>, <code>Lin</code> and <code>Wang</code>
+respectively and supports more than 70 species.</p>
+<p><code>meshes</code> is released within the
+<a href="https://bioconductor.org/packages/meshes/">Bioconductor</a> project and
+the source code is hosted on
+<a href="https://github.com/GuangchuangYu/meshes"><i class="fa fa-github fa-lg"></i>
+GitHub</a>.</p>
 <h2 id="author"><i class="fa fa-user"></i> Author</h2>
 <p>Guangchuang Yu, School of Public Health, The University of Hong Kong.</p>
 <h2 id="installation"><i class="fa fa-download"></i> Installation</h2>
-<p>Install <code>meshes</code> is easy, follow the guide on the <a href="https://bioconductor.org/packages/meshes/">Bioconductor page</a>:</p>
+<p>Install <code>meshes</code> is easy, follow the guide on the <a href="https://bioconductor.org/packages/meshes/">Bioconductor
+page</a>:</p>
 <pre><code class="r">## try http:// if https:// URLs are not supported
 source(&quot;https://bioconductor.org/biocLite.R&quot;)
 ## biocLite(&quot;BiocUpgrade&quot;) ## you may need this
@@ -262,23 +268,28 @@ biocLite(&quot;meshes&quot;)
 <li>upsetplot</li>
 <li>simplot</li>
 </ul>
-<p><i class="fa fa-hand-o-right"></i> Find out details and examples on <i class="fa fa-book"></i> <a href="https://guangchuangyu.github.io/meshes/documentation/">Documentation</a>.</p>
+<p><i class="fa fa-hand-o-right"></i> Find out details and examples on
+<i class="fa fa-book"></i>
+<a href="https://guangchuangyu.github.io/meshes/documentation/">Documentation</a>.</p>
 <h2 id="related-tools"><i class="fa fa-wrench"></i> Related Tools</h2>
 <ul class="fa-ul">
     <li><i class="fa-li fa fa-angle-double-right"></i><a href="https://guangchuangyu.github.io/clusterProfiler">clusterProfiler</a> for Ontologies/pathways enrichment analyses</li>
     <li><i class="fa-li fa fa-angle-double-right"></i><a href="https://guangchuangyu.github.io/DOSE">DOSE</a> for Disease Ontology Semantic and Enrichment analyses</li>
     <li><i class="fa-li fa fa-angle-double-right"></i><a href="https://guangchuangyu.github.io/GOSemSim">GOSemSim</a> for GO semantic similarity measurement</li>
     <li><i class="fa-li fa fa-angle-double-right"></i><a href="https://guangchuangyu.github.io/ReactomePA">ReactomePA</a> for Reactome pathway analysis</li>
+
 </ul>
 
-<p><i class="fa fa-hand-o-right"></i> Find out more on <a href="https://guangchuangyu.github.io/#projects">projects</a>.</p>
+<p><i class="fa fa-hand-o-right"></i> Find out more on
+<a href="https://guangchuangyu.github.io/#projects">projects</a>.</p>
 <h2 id="feedback"><i class="fa fa-comment"></i> Feedback</h2>
-<p><ul class="fa-ul">
-    <li><i class="fa-li fa fa-hand-o-right"></i> Please make sure you <a href="https://guangchuangyu.github.io/2016/07/how-to-bug-author/">follow the guide</a> before posting any issue/question</li>
-    <li><i class="fa-li fa fa-bug"></i> For bugs or feature requests, please post to <i class="fa fa-github-alt"></i> <a href="https://github.com/GuangchuangYu/meshes/issues">github issue</a></li>
-    <li><i class="fa-li fa fa-question"></i>  For user questions, please post to <a href="https://support.bioconductor.org/">Bioconductor support site</a> and <a href="https://www.biostars.org/">Biostars</a>. We are following every post tagged with <strong>meshes</strong></li>
+<ul class="fa-ul">
+    <li><i class="fa-li fa fa-hand-o-right"></i> Please make sure you have followed <a href="https://guangchuangyu.github.io/2016/07/how-to-bug-author/"><strong>the important guide</strong></a> before posting any issue/question</li>
+    <li><i class="fa-li fa fa-bug"></i> For bugs or feature requests, please post to <i class="fa fa-github-alt"></i> [github issue](https://github.com/GuangchuangYu/meshes/issues)</li>
+    <li><i class="fa-li fa fa-question"></i>  For user questions, please post to [Bioconductor support site](https://support.bioconductor.org/) and [Biostars](https://www.biostars.org/). We are following every post tagged with **meshes**</li>
     <li><i class="fa-li fa fa-commenting"></i> Join the group chat on <a href="https://twitter.com/hashtag/meshes"><i class="fa fa-twitter fa-lg"></i></a> and <a href="http://huati.weibo.com/k/meshes"><i class="fa fa-weibo fa-lg"></i></a></li>
-</ul></p></div>
+
+</ul></div>
         </div>
 
         <footer class="col-md-12">
