@@ -25,10 +25,10 @@ meshes: MeSH Enrichment and Semantic analyses
 <link rel="stylesheet" href="https://guangchuangyu.github.io/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://guangchuangyu.github.io/css/academicons.min.css">
 
-[![releaseVersion](https://img.shields.io/badge/release%20version-1.0.0-blue.svg?style=flat)](https://bioconductor.org/packages/meshes)
-[![develVersion](https://img.shields.io/badge/devel%20version-1.1.0-blue.svg?style=flat)](https://github.com/guangchuangyu/meshes)
-[![total](https://img.shields.io/badge/downloads-339/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
-[![month](https://img.shields.io/badge/downloads-67/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
+[![](https://img.shields.io/badge/release%20version-1.2.0-blue.svg?style=flat)](https://bioconductor.org/packages/meshes)
+[![](https://img.shields.io/badge/devel%20version-1.1.0-blue.svg?style=flat)](https://github.com/guangchuangyu/meshes)
+[![](https://img.shields.io/badge/download-507/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
+[![](https://img.shields.io/badge/download-75/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
 
 MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to
 manually index articles for MEDLINE/PubMed. MeSH terms were associated

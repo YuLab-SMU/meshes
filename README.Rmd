@@ -13,7 +13,7 @@ library("ypages")
 ```
 
 `r badge_bioc_release("meshes", "green")`
-`r badge_devel("meshes", "green")`
+`r badge_devel("guangchuangyu/meshes", "green")`
 [![Bioc](http://www.bioconductor.org/shields/years-in-bioc/meshes.svg)](https://www.bioconductor.org/packages/devel/bioc/html/meshes.html#since)
 `r badge_bioc_download("meshes", "total", "blue")`
 `r badge_bioc_download("meshes", "month", "blue")`
@@ -46,16 +46,16 @@ implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and
 Wang respectively and supports more than 70 species.
 
 
+For details, please visit our project website, <https://guangchuangyu.github.io/meshes>.
+
++ [Documentation](https://guangchuangyu.github.io/meshes/documentation/)
++ [Feedback](https://guangchuangyu.github.io/meshes/#feedback)
+
 
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/GuangchuangYu/meshes.svg?style=social)](https://twitter.com/intent/tweet?hashtags=meshes&url=https://guangchuangyu.github.io/meshes&screen_name=guangchuangyu)
 
 
 ----------------------------------------------------------------------------------------
-
-For details, please visit our project website, <https://guangchuangyu.github.io/meshes>.
-
-+ [Documentation](https://guangchuangyu.github.io/meshes/documentation/)
-+ [Feedback](https://guangchuangyu.github.io/meshes/#feedback)
 
 
 ### Download stats
