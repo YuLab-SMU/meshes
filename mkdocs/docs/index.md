@@ -26,9 +26,9 @@ meshes: MeSH Enrichment and Semantic analyses
 <link rel="stylesheet" href="https://guangchuangyu.github.io/css/academicons.min.css">
 
 [![](https://img.shields.io/badge/release%20version-1.2.0-blue.svg?style=flat)](https://bioconductor.org/packages/meshes)
-[![](https://img.shields.io/badge/devel%20version-1.1.0-blue.svg?style=flat)](https://github.com/guangchuangyu/meshes)
-[![](https://img.shields.io/badge/download-507/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
-[![](https://img.shields.io/badge/download-75/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
+[![](https://img.shields.io/badge/devel%20version-1.3.0-blue.svg?style=flat)](https://github.com/guangchuangyu/meshes)
+[![](https://img.shields.io/badge/download-798/total-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
+[![](https://img.shields.io/badge/download-128/month-blue.svg?style=flat)](https://bioconductor.org/packages/stats/bioc/meshes)
 
 MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to
 manually index articles for MEDLINE/PubMed. MeSH terms were associated

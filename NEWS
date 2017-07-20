@@ -9,11 +9,11 @@ CHANGES IN VERSION 1.0.0
 CHANGES IN VERSION 0.99.7
 ------------------------
  o Depends DOSE <2016-09-29, Thu>
- 
+
 CHANGES IN VERSION 0.99.6
 ------------------------
  o update docs <2016-09-19, Mon>
- 
+
 CHANGES IN VERSION 0.99.3
 ------------------------
  o remove non-ASCII character in vignettes/meshes.bib <2016-08-16, Tue>
@@ -25,13 +25,13 @@ CHANGES IN VERSION 0.99.2
 CHANGES IN VERSION 0.99.1
 ------------------------
  o R check passed <2016-08-16, Tue>
- 
+
 CHANGES IN VERSION 0.99.0
 ------------------------
  o add vignette <2016-08-11, Thu>
  o enrichMeSH and gseMeSH <2016-08-11, Thu>
    + move from clusterProfiler
- 
+
 CHANGES IN VERSION 0.0.1
 ------------------------
  o geneSim <2016-08-10, Wed>
