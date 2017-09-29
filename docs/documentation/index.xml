@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentations on meshes</title>
+    <link>https://guangchuangyu.github.io/meshes/documentation/</link>
+    <description>Recent content in Documentations on meshes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Artistic-2.0 license</copyright>
+    <lastBuildDate>Mon, 24 Jul 2017 00:11:02 +0100</lastBuildDate>
+    
+	<atom:link href="https://guangchuangyu.github.io/meshes/documentation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://guangchuangyu.github.io/meshes/documentation/</link>
+      <pubDate>Mon, 24 Jul 2017 00:11:02 +0100</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/meshes/documentation/</guid>
+      <description>Vignettes  GOSemSim: An introduction to GOSemSim DOSE: Disease enrichment analysis DOSE: Disease GSEA An introduction to meshes    Blog posts  News and updates  BioC 3.4: NEWS of my BioC packages    Enrichment analysis  functional enrichment analysis with NGS data leading edge analysis Using meshes for MeSH enrichment analysis    Visualization  dotplot for enrichment result dotplot for GSEA result enrichment map showCategory parameter for visualizing compareCluster output   Find out more on https://guangchuangyu.</description>
+    </item>
+    
+  </channel>
+</rss>

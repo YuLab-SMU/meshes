@@ -8,16 +8,15 @@ html_preview: false
 #  meshes: MeSH Enrichment and Semantic analyses
 
 ```{r echo=FALSE, results="hide", message=FALSE}
-library("txtplot")
+library("badger")
 library("ypages")
+library("ggplot2")
+library("yyplot")
 ```
+
 
 `r badge_bioc_release("meshes", "green")`
 `r badge_devel("guangchuangyu/meshes", "green")`
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
 [![Bioc](http://www.bioconductor.org/shields/years-in-bioc/meshes.svg)](https://www.bioconductor.org/packages/devel/bioc/html/meshes.html#since)
 `r badge_bioc_download("meshes", "total", "blue")`
 `r badge_bioc_download("meshes", "month", "blue")`
@@ -64,16 +63,21 @@ For details, please visit our project website, <https://guangchuangyu.github.io/
 
 ### Download stats
 
-[![download](http://www.bioconductor.org/shields/downloads/meshes.svg)](https://bioconductor.org/packages/stats/bioc/meshes/)
+`r badge_download_bioc("meshes")`
 `r badge_bioc_download("meshes", "total", "blue")`
 `r badge_bioc_download("meshes", "month", "blue")`
 
 
-```{r echo=F, comment=NA, eval=F}
+```{r echo=F, message=F, comment=NA}
 x <- dlstats::bioc_stats("meshes")
 x <- x[-nrow(x), ] # last month data is not complete
-txtplot(ggtree::Date2decimal(x$end), x$Nb_of_downloads, width=100, height=25)
+p <- ggplot(x, aes(end, Nb_of_distinct_IPs)) + geom_point() + geom_line() +
+    theme_minimal() +xlab(NULL) + ylab(NULL) +
+    labs(title="meshes", subtitle="Monthly download stats (distinct IPs)", caption="data from Bioconductor")
+ggsave(p, file="docs/images/dlstats.png", width=8, height=4)
 ```
+
+<img src="docs/images/dlstats.png" width="890"/>
 
 
 

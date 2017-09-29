@@ -6,3 +6,5 @@ Makefile
 appveyor.yml
 .svnignore
 .github
+site_src
+docs

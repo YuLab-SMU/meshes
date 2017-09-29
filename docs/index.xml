@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>meshes</title>
+    <link>https://guangchuangyu.github.io/meshes/</link>
+    <description>Recent content on meshes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Artistic-2.0 license</copyright>
+    <lastBuildDate>Thu, 06 Jul 2017 12:08:13 +0100</lastBuildDate>
+    
+	<atom:link href="https://guangchuangyu.github.io/meshes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>meshes: MeSH Enrichment and Semantic analyses</title>
+      <link>https://guangchuangyu.github.io/meshes/</link>
+      <pubDate>Thu, 06 Jul 2017 12:08:13 +0100</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/meshes/</guid>
+      <description>MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed. MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH. This association is fundamental for enrichment and semantic analyses. meshes supports enrichment analysis (over-representation and gene set enrichment analysis) of gene list or whole expression profile. The semantic comparisons of MeSH terms provide quantitative ways to compute similarities between genes and gene groups.</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://guangchuangyu.github.io/meshes/documentation/</link>
+      <pubDate>Mon, 24 Jul 2017 00:11:02 +0100</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/meshes/documentation/</guid>
+      <description>Vignettes  GOSemSim: An introduction to GOSemSim DOSE: Disease enrichment analysis DOSE: Disease GSEA An introduction to meshes    Blog posts  News and updates  BioC 3.4: NEWS of my BioC packages    Enrichment analysis  functional enrichment analysis with NGS data leading edge analysis Using meshes for MeSH enrichment analysis    Visualization  dotplot for enrichment result dotplot for GSEA result enrichment map showCategory parameter for visualizing compareCluster output   Find out more on https://guangchuangyu.</description>
+    </item>
+    
+  </channel>
+</rss>

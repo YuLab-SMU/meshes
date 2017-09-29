@@ -27,4 +27,3 @@ meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed"
 \author{
 Guangchuang Yu
 }
-

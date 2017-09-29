@@ -32,4 +32,3 @@ geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
 \author{
 Guangchuang Yu
 }
-

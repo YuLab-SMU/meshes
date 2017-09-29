@@ -29,4 +29,3 @@ meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
 \author{
 Guangchuang Yu \url{https://guangchuangyu.github.io}
 }
-

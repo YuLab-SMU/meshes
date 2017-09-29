@@ -2,12 +2,11 @@
 % Please edit documentation in R/meshes.R
 \docType{data}
 \name{mesh_term_table}
-\alias{hsamd}
 \alias{mesh_term_table}
 \alias{meshtbl}
+\alias{hsamd}
 \title{DATA Sets}
 \description{
 These datasets are used in meshes
 }
 \keyword{datasets}
-

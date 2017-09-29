@@ -1,78 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/documentation/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/ChIPseeker/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/clusterProfiler/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/DOSE/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/emojifont/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/ggtree/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/GOSemSim/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/meshes/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/ReactomePA/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://guangchuangyu.github.io/meshes/treeio/</loc>
-     <lastmod>2017-07-20</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/</loc>
+    <lastmod>2017-07-06T12:08:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/documentation/</loc>
+    <lastmod>2017-07-24T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/documentation/</loc>
+    <lastmod>2017-07-24T00:11:02+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://guangchuangyu.github.io/meshes/</loc>
+    <lastmod>2017-07-06T12:08:13+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

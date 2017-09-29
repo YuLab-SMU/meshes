@@ -49,4 +49,3 @@ data(geneList, package="DOSE")
 \author{
 Yu Guangchuang
 }
-
