@@ -14,7 +14,10 @@ library("ypages")
 
 `r badge_bioc_release("meshes", "green")`
 `r badge_devel("guangchuangyu/meshes", "green")`
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 [![Bioc](http://www.bioconductor.org/shields/years-in-bioc/meshes.svg)](https://www.bioconductor.org/packages/devel/bioc/html/meshes.html#since)
 `r badge_bioc_download("meshes", "total", "blue")`
 `r badge_bioc_download("meshes", "month", "blue")`
