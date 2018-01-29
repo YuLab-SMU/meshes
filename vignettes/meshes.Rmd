@@ -7,28 +7,39 @@ author: "\\
         School of Public Health, The University of Hong Kong"
 date: "`r Sys.Date()`"
 bibliography: meshes.bib
-csl: nature.csl
-output: 
-  BiocStyle::html_document:
+biblio-style: apalike
+output:
+  prettydoc::html_pretty:
     toc: true
-  BiocStyle::pdf_document:
+    theme: cayman
+    highlight: github
+  pdf_document:
     toc: true
 vignette: >
   % \VignetteIndexEntry{An introduction to meshes}
   % \VignetteEngine{knitr::rmarkdown}
   %\VignetteDepends{MeSH.Hsa.eg.db}
-  %\VignetteDepends{MeSH.db}  
+  %\VignetteDepends{MeSH.db}
   % \usepackage[utf8]{inputenc}
 ---
 
 ```{r style, echo=FALSE, results="asis", message=FALSE}
-BiocStyle::markdown()
 knitr::opts_chunk$set(tidy = FALSE,
                       warning = FALSE,
                       message = FALSE)
 ```
 
 ```{r echo=FALSE, results="hide", message=FALSE}
+CRANpkg <- function (pkg) {
+    cran <- "https://CRAN.R-project.org/package"
+    fmt <- "[%s](%s=%s)"
+    sprintf(fmt, pkg, cran, pkg)
+}
+
+Biocpkg <- function (pkg) {
+    sprintf("[%s](http://bioconductor.org/packages/%s)", pkg, pkg)
+}
+
 library(MeSH.Hsa.eg.db)
 library(MeSH.db)
 library(DOSE)
@@ -43,80 +54,24 @@ Medicine) controlled vocabulary used to manually index articles for
 MEDLINE/PubMed. MeSH is comprehensive life science vocabulary. MeSH has
 19 categories and `MeSH.db` contains 16 of them. That is:
 
-<table>
-<thead>
-<tr class="header">
-<th>Abbreviation</th>
-<th>Category</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>Anatomy</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>Organisms</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>Diseases</td>
-</tr>
-<tr class="even">
-<td>D</td>
-<td>Chemicals and Drugs</td>
-</tr>
-<tr class="odd">
-<td>E</td>
-<td>Analytical, Diagnostic and Therapeutic Techniques and Equipment</td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td>Psychiatry and Psychology</td>
-</tr>
-<tr class="odd">
-<td>G</td>
-<td>Phenomena and Processes</td>
-</tr>
-<tr class="even">
-<td>H</td>
-<td>Disciplines and Occupations</td>
-</tr>
-<tr class="odd">
-<td>I</td>
-<td>Anthropology, Education, Sociology and Social Phenomena</td>
-</tr>
-<tr class="even">
-<td>J</td>
-<td>Technology and Food and Beverages</td>
-</tr>
-<tr class="odd">
-<td>K</td>
-<td>Humanities</td>
-</tr>
-<tr class="even">
-<td>L</td>
-<td>Information Science</td>
-</tr>
-<tr class="odd">
-<td>M</td>
-<td>Persons</td>
-</tr>
-<tr class="even">
-<td>N</td>
-<td>Health Care</td>
-</tr>
-<tr class="odd">
-<td>V</td>
-<td>Publication Type</td>
-</tr>
-<tr class="even">
-<td>Z</td>
-<td>Geographical Locations</td>
-</tr>
-</tbody>
-</table>
+|Abbreviation |Category                                                        |
+|:------------|:---------------------------------------------------------------|
+|A            |Anatomy                                                         |
+|B            |Organisms                                                       |
+|C            |Diseases                                                        |
+|D            |Chemicals and Drugs                                             |
+|E            |Analytical, Diagnostic and Therapeutic Techniques and Equipment |
+|F            |Psychiatry and Psychology                                       |
+|G            |Phenomena and Processes                                         |
+|H            |Disciplines and Occupations                                     |
+|I            |Anthropology, Education, Sociology and Social Phenomena         |
+|J            |Technology and Food and Beverages                               |
+|K            |Humanities                                                      |
+|L            |Information Science                                             |
+|M            |Persons                                                         |
+|N            |Health Care                                                     |
+|V            |Publication Type                                                |
+|Z            |Geographical Locations                                          |
 
 MeSH terms were associated with Entrez Gene ID by three methods,
 `gendoo`, `gene2pubmed` and `RBBH` (Reciprocal Blast Best Hit).
@@ -156,7 +111,7 @@ y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', cate
 head(y)
 ```
 
-User can use visualization methods implemented in [DOSE](https://guangchuangyu.github.io/DOSE) (i.e.`barplot`, `dotplot`, `cnetplot`, `enrichMap`, `upsetplot` and `gseaplot`) to visualize these enrichment results. With these visualization methods, it's much easier to interpret enriched results.
+User can use visualization methods implemented in [DOSE](https://guangchuangyu.github.io/DOSE) (i.e.`barplot`, `dotplot`, `cnetplot`, `emapplot` and `gseaplot`) to visualize these enrichment results. With these visualization methods, it's much easier to interpret enriched results.
 
 
 ```{r}
@@ -167,7 +122,7 @@ gseaplot(y, y[1,1], title=y[1,2])
 # Semantic Similarity
 
 `meshes` implemented four IC-based methods (i.e. Resnik[@philip_semantic_1999], Jiang[@jiang_semantic_1997],
-Lin[@lin_information-theoretic_1998] and Schlicker[@schlicker_new_2006]) and one graph-structure based method (i.e. Wang[@wang_new_2007]). For algorithm details, please refer to the vignette of `r Biocpkg("GOSemSim")` package[@yu2010] 
+Lin[@lin_information-theoretic_1998] and Schlicker[@schlicker_new_2006]) and one graph-structure based method (i.e. Wang[@wang_new_2007]). For algorithm details, please refer to the vignette of `r Biocpkg("GOSemSim")` package[@yu2010]
 
 
 `meshSim` function is designed to measure semantic similarity between two MeSH term vectors.
@@ -195,16 +150,16 @@ geneSim(c("241", "251"), c("835", "5261","241", "994"), semData=hsamd, measure="
 # Related tools
 
 ## Enrichment analysis
-  
+
 - `r Biocpkg("DOSE")`[@yu_dose_2015]
 - `r Biocpkg("clusterProfiler")`[@yu2012]
 - `r Biocpkg("ReactomePA")`[@yu_reactomepa_2016]
-  
+
 ## Semantic similairty measurement
 
 - `r Biocpkg("GOSemSim")`[@yu2010]
 - `r Biocpkg("DOSE")`[@yu_dose_2015]
-  
+
 
 # Session Information
 
