@@ -21,6 +21,7 @@ vignette: >
   %\VignetteDepends{MeSH.Hsa.eg.db}
   %\VignetteDepends{MeSH.db}
   % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r style, echo=FALSE, results="asis", message=FALSE}
@@ -111,7 +112,7 @@ y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', cate
 head(y)
 ```
 
-User can use visualization methods implemented in [DOSE](https://guangchuangyu.github.io/DOSE) (i.e.`barplot`, `dotplot`, `cnetplot`, `emapplot` and `gseaplot`) to visualize these enrichment results. With these visualization methods, it's much easier to interpret enriched results.
+User can use visualization methods implemented in `r Biocpkg("enrichplot")` (i.e.`barplot`, `dotplot`, `cnetplot`, `emapplot` and `gseaplot`) to visualize these enrichment results. With these visualization methods, it's much easier to interpret enriched results.
 
 
 ```{r}
@@ -160,6 +161,23 @@ geneSim(c("241", "251"), c("835", "5261","241", "994"), semData=hsamd, measure="
 - `r Biocpkg("GOSemSim")`[@yu2010]
 - `r Biocpkg("DOSE")`[@yu_dose_2015]
 
+
+# Need helps?
+
+
+If you have questions/issues, please visit
+[meshes homepage](https://guangchuangyu.github.io/software/meshes/) first.
+Your problems are mostly documented. If you think you found a bug, please follow
+[the guide](https://guangchuangyu.github.io/2016/07/how-to-bug-author/) and
+provide a reproducible example to be posted
+on
+[github issue tracker](https://github.com/GuangchuangYu/meshes/issues).
+For questions, please post
+to [Bioconductor support site](https://support.bioconductor.org/) and tag your
+post with *meshes*.
+
+
+For Chinese user, you can follow me on [WeChat (微信)](https://guangchuangyu.github.io/blog_images/biobabble.jpg).
 
 # Session Information
 
