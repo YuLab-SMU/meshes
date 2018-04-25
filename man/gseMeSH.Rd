@@ -43,8 +43,10 @@ gseaResult object
 Gene Set Enrichment Analysis of MeSH
 }
 \examples{
+\dontrun{
 data(geneList, package="DOSE")
-## y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+}
 }
 \author{
 Yu Guangchuang

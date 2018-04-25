@@ -19,8 +19,10 @@
 ##' @export
 ##' @return gseaResult object
 ##' @examples
+##' \dontrun{
 ##' data(geneList, package="DOSE")
-##' ## y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+##' y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+##' }
 ##' @author Yu Guangchuang
 gseMeSH <- function(geneList,
                     MeSHDb,
@@ -55,6 +57,6 @@ gseMeSH <- function(geneList,
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
     res@organism <- get_organism(MeSHDb)
     res@setType <- "MeSH"
-    
+
     return(res)
 }

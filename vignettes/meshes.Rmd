@@ -98,7 +98,8 @@ For algorithm details, please refer to the vignettes of `r Biocpkg("DOSE")`[@yu_
 library(meshes)
 data(geneList, package="DOSE")
 de <- names(geneList)[1:100]
-x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C')
+## minGSSize = 200 for only speed up the compilation of the vignette
+x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C', minGSSize=200)
 head(x)
 ```
 
@@ -108,7 +109,8 @@ In the over-representation analysis, we use data source from `gendoo` and `C` (D
 In the following example, we use data source from `gene2pubmed` and test category `G` (Phenomena and Processes) using GSEA.
 
 ```{r}
-y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+## minGSSize = 200 for only speed up the compilation of the vignette
+y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G", minGSSize=200)
 head(y)
 ```
 
