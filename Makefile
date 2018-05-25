@@ -41,20 +41,9 @@ clean:
 	$(RM) -r $(PKGNAME).Rcheck/
 
 
-site:
-	cd site_src;\
-	ln -s ../../software/themes themes;\
-	Rscript -e 'blogdown::build_site()';\
-	rm themes;\
-	cd ..
-
-preview:
-	cd site_src;\
-	ln -s ../../software/themes themes;\
-	Rscript -e 'blogdown::serve_site()';\
-	rm themes;\
-	cd ..
-
+release:
+	git checkout RELEASE_3_7;\
+	git fetch --all
 
 
 gitmaintain:

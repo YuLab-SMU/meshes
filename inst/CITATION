@@ -1,0 +1,16 @@
+citHeader("Please cite G. Yu (2018) for using meshes. In addition, please cite G. Yu (2012) when using clusterProfiler, G. Yu (2015) when using DOSE.")
+
+citEntry(entry  ="ARTICLE",
+         title  = "Using meshes for MeSH term enrichment and semantic analyses ",
+         author = as.person("Guangchuang Yu"),
+         journal = "Bioinformatics",
+         year    = "2018",
+         volume  = "",
+         number  = "",
+         pages   = "",
+         PMID    = "29790928",
+         doi     = "10.1093/bioinformatics/bty410",
+         textVersion = paste("Guangchuang Yu.",
+             "Using meshes for MeSH term enrichment and semantic analyses.",
+             "Bioinformatics 2018, doi: 10.1093/bioinformatics/bty410")
+         )
