@@ -4,7 +4,7 @@ PKGSRC  := $(shell basename `pwd`)
 
 all: rd check clean
 
-alldocs: rd readme mkdocs
+alldocs: rd readme
 
 rd:
 	Rscript -e 'roxygen2::roxygenise(".")'
@@ -60,3 +60,7 @@ update:
 push: update
 	git push upstream master;\
 	git push origin master
+
+biocinit:
+	git remote add upstream git@git.bioconductor.org:packages/$(PKGNAME).git;\
+	git fetch --all
