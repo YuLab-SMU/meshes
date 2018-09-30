@@ -13,7 +13,7 @@ Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
 	     proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports
 	     more than 70 species.
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.4.0)
 Imports:
     AnnotationDbi,
     DOSE (>= 3.5.1),
@@ -35,4 +35,4 @@ BugReports: https://github.com/GuangchuangYu/meshes/issues
 biocViews: Annotation, Clustering, MultipleComparison, Software
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
