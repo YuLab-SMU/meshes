@@ -5,8 +5,8 @@
 \title{enrichMeSH}
 \usage{
 enrichMeSH(gene, MeSHDb, database = "gendoo", category = "C",
-  pvalueCutoff = 0.05, pAdjustMethod = "BH", universe, qvalueCutoff = 0.2,
-  minGSSize = 10, maxGSSize = 500)
+  pvalueCutoff = 0.05, pAdjustMethod = "BH", universe,
+  qvalueCutoff = 0.2, minGSSize = 10, maxGSSize = 500)
 }
 \arguments{
 \item{gene}{a vector of entrez gene id}
