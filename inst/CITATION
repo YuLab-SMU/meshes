@@ -5,12 +5,12 @@ citEntry(entry  ="ARTICLE",
          author = as.person("Guangchuang Yu"),
          journal = "Bioinformatics",
          year    = "2018",
-         volume  = "",
-         number  = "",
-         pages   = "",
+         volume  = "34",
+         number  = "21",
+         pages   = "3766-3767",
          PMID    = "29790928",
          doi     = "10.1093/bioinformatics/bty410",
          textVersion = paste("Guangchuang Yu.",
-             "Using meshes for MeSH term enrichment and semantic analyses.",
-             "Bioinformatics 2018, doi: 10.1093/bioinformatics/bty410")
+                             "Using meshes for MeSH term enrichment and semantic analyses.",
+                             "Bioinformatics 2018, 34(21):3766–3767, doi:10.1093/bioinformatics/bty410")
          )
