@@ -10,8 +10,6 @@ html_preview: false
 ```{r echo=FALSE, results="hide", message=FALSE}
 library("badger")
 library("ypages")
-library("ggplot2")
-library("yyplot")
 ```
 
 
@@ -34,39 +32,38 @@ library("yyplot")
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/Guangchuangyu/meshes/master.svg?label=Windows)](https://ci.appveyor.com/project/GuangchuangYu/meshes)
 
 
+```{r comment="", echo=FALSE, results='asis'}
+cat(packageDescription('meshes')$Description)
+```
 
 
-MeSH (Medical Subject Headings) is the NLM controlled vocabulary used
-to manually index articles for MEDLINE/PubMed. MeSH terms were
-associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and
-RBBH. This association is fundamental for enrichment and semantic
-analyses. meshes supports enrichment analysis (over-representation and
-gene set enrichment analysis) of gene list or whole expression
-profile. The semantic comparisons of MeSH terms provide quantitative
-ways to compute similarities between genes and gene groups. meshes
-implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and
-Wang respectively and supports more than 70 species.
+
+For details, please visit <https://yulab-smu.github.io/clusterProfiler-book/>.
 
 
-For details, please visit our project website, <https://guangchuangyu.github.io/software/meshes>.
+## :writing_hand: Authors
 
-+ [Documentation](https://guangchuangyu.github.io/software/meshes/documentation/)
-+ [Feedback](https://guangchuangyu.github.io/software/meshes/#feedback)
+Guangchuang YU
+
+School of Basic Medical Sciences, Southern Medical University
+
+<https://guangchuangyu.github.io>
 
 
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?hashtags=meshes&url=https://guangchuangyu.github.io/software/meshes&screen_name=guangchuangyu)
-`r badger::badge_custom("follow me on", "微信", "green", "https://guangchuangyu.github.io/blog_images/biobabble.jpg")`
-`r badger::badge_custom("打赏", "支付宝/微信", "green", "https://guangchuangyu.github.io/blog_images/pay_qrcode.png")`
+[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?hashtags=ReactomePA&url=https://academic.oup.com/bioinformatics/article/34/21/3766/5001391&screen_name=guangchuangyu)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/GuangchuangYu)
+`r badger::badge_custom('follow me on', 'WeChat', 'green', 'https://guangchuangyu.github.io/blog_images/biobabble.jpg')`
 
+<!--
 
 ----------------------------------------------------------------------------------------
 
 
 ### Download stats
 
-`r badge_download_bioc("meshes")`
-`r badge_bioc_download("meshes", "total", "blue")`
-`r badge_bioc_download("meshes", "month", "blue")`
+r badge_download_bioc("meshes")
+r badge_bioc_download("meshes", "total", "blue")
+r badge_bioc_download("meshes", "month", "blue")
 
 
 <img src="https://guangchuangyu.github.io/software/meshes/index_files/figure-html/dlstats-1.png" width="890"/>
@@ -74,5 +71,5 @@ For details, please visit our project website, <https://guangchuangyu.github.io/
 
 
 
-
+-->
 

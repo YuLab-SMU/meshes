@@ -4,8 +4,7 @@
 \alias{geneSim}
 \title{geneSim}
 \usage{
-geneSim(geneID1, geneID2 = NULL, measure = "Wang", combine = "BMA",
-  semData)
+geneSim(geneID1, geneID2 = NULL, measure = "Wang", combine = "BMA", semData)
 }
 \arguments{
 \item{geneID1}{gene ID vector}

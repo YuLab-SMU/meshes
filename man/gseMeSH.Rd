@@ -4,10 +4,21 @@
 \alias{gseMeSH}
 \title{gseMeSH}
 \usage{
-gseMeSH(geneList, MeSHDb, database = "gendoo", category = "C",
-  exponent = 1, nPerm = 1000, minGSSize = 10, maxGSSize = 500,
-  pvalueCutoff = 0.05, pAdjustMethod = "BH", verbose = TRUE,
-  seed = FALSE, by = "fgsea")
+gseMeSH(
+  geneList,
+  MeSHDb,
+  database = "gendoo",
+  category = "C",
+  exponent = 1,
+  nPerm = 1000,
+  minGSSize = 10,
+  maxGSSize = 500,
+  pvalueCutoff = 0.05,
+  pAdjustMethod = "BH",
+  verbose = TRUE,
+  seed = FALSE,
+  by = "fgsea"
+)
 }
 \arguments{
 \item{geneList}{order ranked geneList}
