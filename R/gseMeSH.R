@@ -55,7 +55,7 @@ gseMeSH <- function(geneList,
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
-    res@organism <- get_organism(MeSHDb)
+    res@organism <- AnnotationDbi::species(MeSHDb)
     res@setType <- "MeSH"
 
     return(res)
