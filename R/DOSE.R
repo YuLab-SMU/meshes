@@ -9,9 +9,10 @@ DOSE::geneID
 ##' @export
 DOSE::geneInCategory
 
+build_Anno <- getFromNamespace("build_Anno", "DOSE")
+enricher_internal <- getFromNamespace("enricher_internal", "DOSE")
+GSEA_internal <- getFromNamespace("GSEA_internal", "DOSE")
+get_organism <- getFromNamespace("get_organism", "DOSE")
 
-build_Anno <- DOSE:::build_Anno
-enricher_internal <- DOSE:::enricher_internal
-GSEA_internal <- DOSE:::GSEA_internal
 
 
