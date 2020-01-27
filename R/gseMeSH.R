@@ -7,9 +7,10 @@
 ##' @param database one of 'gendoo', 'gene2pubmed' or 'RBBH'
 ##' @param category one of "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M", "N", "V", "Z"
 ##' @param exponent weight of each step
+##' @param nPerm permutation numbers
 ##' @param minGSSize minimal size of each geneSet for analyzing
 ##' @param maxGSSize maximal size of genes annotated for testing
-##' @param eps_dose This parameter sets the boundary for calculating the p value.
+##' @param eps This parameter sets the boundary for calculating the p value.
 ##' @param pvalueCutoff pvalue Cutoff
 ##' @param pAdjustMethod pvalue adjustment method
 ##' @param verbose print message or not
@@ -29,10 +30,10 @@ gseMeSH <- function(geneList,
                     database = 'gendoo',
                     category = 'C',
                     exponent      = 1,
-                    #nPerm         = 1000,
+                    nPerm         = 1000,
                     minGSSize     = 10,
                     maxGSSize     = 500,
-                    eps_dose      = 1e-10,
+                    eps      = 1e-10,
                     pvalueCutoff=0.05,
                     pAdjustMethod="BH",
                     verbose       = TRUE,
@@ -40,18 +41,33 @@ gseMeSH <- function(geneList,
                     by = 'fgsea') {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
-    res <-  GSEA_internal(geneList = geneList,
-                          exponent = exponent,
-                          #nPerm = nPerm,
-                          minGSSize = minGSSize,
-                          maxGSSize = maxGSSize,
-                          eps_dose = eps_dose,
-                          pvalueCutoff = pvalueCutoff,
-                          pAdjustMethod = pAdjustMethod,
-                          verbose = verbose,
-                          USER_DATA = MeSH_DATA,
-                          seed = seed,
-                          by = by)
+    
+    if(missing(nPerm)) {
+        res <-  GSEA_internal(geneList         = geneList,
+                              exponent         = exponent,
+                              minGSSize        = minGSSize,
+                              maxGSSize        = maxGSSize,
+                              eps              = eps,
+                              pvalueCutoff     = pvalueCutoff,
+                              pAdjustMethod    = pAdjustMethod,
+                              verbose          = verbose,
+                              USER_DATA        = MeSH_DATA,
+                              seed             = seed,
+                              by               = by)
+    } else {
+        res <-  GSEA_internal(geneList         = geneList,
+                              exponent         = exponent,
+                              nPerm            = nPerm,
+                              minGSSize        = minGSSize,
+                              maxGSSize        = maxGSSize,
+                              pvalueCutoff     = pvalueCutoff,
+                              pAdjustMethod    = pAdjustMethod,
+                              verbose          = verbose,
+                              USER_DATA        = MeSH_DATA,
+                              seed             = seed,
+                              by               = by)
+    }
+    
 
     meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
     id <- res@result$ID
