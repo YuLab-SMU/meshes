@@ -10,7 +10,6 @@ gseMeSH(
   database = "gendoo",
   category = "C",
   exponent = 1,
-  nPerm = 1000,
   minGSSize = 10,
   maxGSSize = 500,
   eps = 1e-10,
@@ -18,7 +17,8 @@ gseMeSH(
   pAdjustMethod = "BH",
   verbose = TRUE,
   seed = FALSE,
-  by = "fgsea"
+  by = "fgsea",
+  ...
 )
 }
 \arguments{
@@ -31,8 +31,6 @@ gseMeSH(
 \item{category}{one of "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M", "N", "V", "Z"}
 
 \item{exponent}{weight of each step}
-
-\item{nPerm}{permutation numbers}
 
 \item{minGSSize}{minimal size of each geneSet for analyzing}
 
@@ -49,6 +47,8 @@ gseMeSH(
 \item{seed}{logical}
 
 \item{by}{one of 'fgsea' or 'DOSE'}
+
+\item{...}{other parameter}
 }
 \value{
 gseaResult object
