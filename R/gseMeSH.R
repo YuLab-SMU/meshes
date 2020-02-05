@@ -15,7 +15,6 @@
 ##' @param verbose print message or not
 ##' @param seed logical
 ##' @param by one of 'fgsea' or 'DOSE'
-##' @param by one of 'fgsea' or 'DOSE'
 ##' @param ... other parameter
 ##' @importClassesFrom DOSE gseaResult
 ##' @export
