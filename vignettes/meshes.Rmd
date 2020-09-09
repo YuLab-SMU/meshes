@@ -5,7 +5,6 @@ author:
   email: guangchuangyu@gmail.com
   affiliation: Department of Bioinformatics, School of Basic Medical Sciences, Southern Medical University
 date: "`r Sys.Date()`"
-bibliography: meshes.bib
 biblio-style: apalike
 output:
   prettydoc::html_pretty:
@@ -15,7 +14,7 @@ output:
   pdf_document:
     toc: true
 vignette: >
-  % \VignetteIndexEntry{An introduction to meshes}
+  % \VignetteIndexEntry{meshes}
   % \VignetteEngine{knitr::rmarkdown}
   %\VignetteDepends{MeSH.Hsa.eg.db}
   %\VignetteDepends{MeSH.db}
@@ -30,129 +29,28 @@ knitr::opts_chunk$set(tidy = FALSE,
 ```
 
 ```{r echo=FALSE, results="hide", message=FALSE}
-CRANpkg <- function (pkg) {
-    cran <- "https://CRAN.R-project.org/package"
-    fmt <- "[%s](%s=%s)"
-    sprintf(fmt, pkg, cran, pkg)
-}
-
 Biocpkg <- function (pkg) {
     sprintf("[%s](http://bioconductor.org/packages/%s)", pkg, pkg)
 }
-
-library(MeSH.Hsa.eg.db)
-library(MeSH.db)
-library(DOSE)
-library(meshes)
-```
-
-# Introduction
-
-
-MeSH (Medical Subject Headings) is the NLM (U.S. National Library of
-Medicine) controlled vocabulary used to manually index articles for
-MEDLINE/PubMed. MeSH is comprehensive life science vocabulary. MeSH has
-19 categories and `MeSH.db` contains 16 of them. That is:
-
-|Abbreviation |Category                                                        |
-|:------------|:---------------------------------------------------------------|
-|A            |Anatomy                                                         |
-|B            |Organisms                                                       |
-|C            |Diseases                                                        |
-|D            |Chemicals and Drugs                                             |
-|E            |Analytical, Diagnostic and Therapeutic Techniques and Equipment |
-|F            |Psychiatry and Psychology                                       |
-|G            |Phenomena and Processes                                         |
-|H            |Disciplines and Occupations                                     |
-|I            |Anthropology, Education, Sociology and Social Phenomena         |
-|J            |Technology and Food and Beverages                               |
-|K            |Humanities                                                      |
-|L            |Information Science                                             |
-|M            |Persons                                                         |
-|N            |Health Care                                                     |
-|V            |Publication Type                                                |
-|Z            |Geographical Locations                                          |
-
-MeSH terms were associated with Entrez Gene ID by three methods,
-`gendoo`, `gene2pubmed` and `RBBH` (Reciprocal Blast Best Hit).
-
-|Method|Way of corresponding Entrez Gene IDs and MeSH IDs|
-|------|-------------------------------------------------|
-|Gendoo|Text-mining|
-|gene2pubmed|Manual curation by NCBI teams|
-|RBBH|sequence homology with BLASTP search (E-value<10<sup>-50</sup>)|
-
-
-# Enrichment Analysis
-
-Please go to <https://yulab-smu.github.io/clusterProfiler-book/chapter9.html> for full vignette of enrichment analysis using MeSH.
-
-# Semantic Similarity
-
-`meshes` implemented four IC-based methods (i.e. Resnik[@philip_semantic_1999], Jiang[@jiang_semantic_1997],
-Lin[@lin_information-theoretic_1998] and Schlicker[@schlicker_new_2006]) and one graph-structure based method (i.e. Wang[@wang_new_2007]). For algorithm details, please refer to the vignette of `r Biocpkg("GOSemSim")` package[@yu2010]
-
-
-`meshSim` function is designed to measure semantic similarity between two MeSH term vectors.
-
-```{r}
-library(meshes)
-## hsamd <- meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
-data(hsamd)
-meshSim("D000009", "D009130", semData=hsamd, measure="Resnik")
-meshSim("D000009", "D009130", semData=hsamd, measure="Rel")
-meshSim("D000009", "D009130", semData=hsamd, measure="Jiang")
-meshSim("D000009", "D009130", semData=hsamd, measure="Wang")
-
-meshSim(c("D001369", "D002462"), c("D017629", "D002890", "D008928"), semData=hsamd, measure="Wang")
-```
-
-`geneSim` function is designed to measure semantic similarity among two gene vectors.
-
-```{r}
-geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
-geneSim(c("241", "251"), c("835", "5261","241", "994"), semData=hsamd, measure="Wang", combine="BMA")
 ```
 
 
-# Related tools
 
-## Enrichment analysis
+# Vignette
 
-- `r Biocpkg("DOSE")`[@yu_dose_2015]
-- `r Biocpkg("clusterProfiler")`[@yu2012]
-- `r Biocpkg("ReactomePA")`[@yu_reactomepa_2016]
+Please go to <https://yulab-smu.top/biomedical-knowledge-mining-book/> for the full vignette.
 
-## Semantic similairty measurement
 
-- `r Biocpkg("GOSemSim")`[@yu2010]
-- `r Biocpkg("DOSE")`[@yu_dose_2015]
+# Citation
+
+If you use `r Biocpkg("meshes")` in published research, please cite the most appropriate paper(s):
+
+__*G Yu*__. Using meshes for MeSH term enrichment and semantic analyses. __*Bioinformatics*__ 2018, 34(21):3766-3767. <https://dx.doi.org/10.1093/bioinformatics/bty410>.
 
 
 # Need helps?
 
 
-If you have questions/issues, please visit
-[meshes homepage](https://guangchuangyu.github.io/software/meshes/) first.
-Your problems are mostly documented. If you think you found a bug, please follow
-[the guide](https://guangchuangyu.github.io/2016/07/how-to-bug-author/) and
-provide a reproducible example to be posted
-on
-[github issue tracker](https://github.com/GuangchuangYu/meshes/issues).
-For questions, please post
-to [Bioconductor support site](https://support.bioconductor.org/) and tag your
-post with *meshes*.
+If you have questions/issues, please post to [Bioconductor support site](https://support.bioconductor.org/) and tag your post with *meshes*.
 
-
-For Chinese user, you can follow me on [WeChat (微信)](https://guangchuangyu.github.io/blog_images/biobabble.jpg).
-
-# Session Information
-
-Here is the output of `sessionInfo()` on the system on which this document was compiled:
-
-```{r echo=FALSE}
-sessionInfo()
-```
-
-# References
 
