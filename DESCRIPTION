@@ -15,7 +15,6 @@ Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
 Depends:
     R (>= 4.1.0)
 Imports:
-    BiocManager,
     AnnotationDbi,
     DOSE,
     enrichplot,

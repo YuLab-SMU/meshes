@@ -128,10 +128,6 @@ getAncestors <- function(meshID) {
 #'
 #' @param meshdbVersion version of MeSH.db
 get_meshdb <- function(meshdbVersion) {
-    if (BiocManager::version() < 3.14) {
-        stop("The R/Bioconductor version you are using is too low.
-             Please use the latest version(Bioc >= 3.14).")
-    }
     ah <- AnnotationHub::AnnotationHub()
     if (is.null(meshdbVersion)) {
         dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db"))[[1]]

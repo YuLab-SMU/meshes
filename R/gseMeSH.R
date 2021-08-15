@@ -47,10 +47,6 @@ gseMeSH <- function(geneList,
                     by            = 'fgsea',
                     meshdbVersion = NULL,
                     ...) {
-    if (BiocManager::version() < 3.14) {
-        stop("The R/Bioconductor version you are using is too low.
-             Please use the latest version(Bioc >= 3.14).")
-    }
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
     
