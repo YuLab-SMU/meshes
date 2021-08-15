@@ -28,7 +28,13 @@
 ##' @export
 ##' @examples
 ##' \dontrun{
-##' meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed")
+##' library(meshes)
+##' library(AnnotationHub)
+##' ah <- AnnotationHub()
+##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' filepath_hsa <- qr_hsa[[1]]
+##' db <- MeSHDbi::MeSHDb(filepath_hsa)
+##' hsamd <- meshdata(db, category='A', computeIC=T, database="gendoo")
 ##' }
 ##' @author Guangchuang Yu 
 meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
