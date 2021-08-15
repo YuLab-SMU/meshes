@@ -22,7 +22,9 @@ a GOSemSimDATA object
 construct annoData for semantic measurement
 }
 \examples{
+\dontrun{
 meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed")
+}
 }
 \author{
 Guangchuang Yu

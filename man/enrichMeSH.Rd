@@ -14,7 +14,8 @@ enrichMeSH(
   universe,
   qvalueCutoff = 0.2,
   minGSSize = 10,
-  maxGSSize = 500
+  maxGSSize = 500,
+  meshdbVersion = NULL
 )
 }
 \arguments{
@@ -37,6 +38,8 @@ enrichMeSH(
 \item{minGSSize}{minimal size of genes annotated by Ontology term for testing.}
 
 \item{maxGSSize}{maximal size of genes annotated for testing}
+
+\item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
 }
 \value{
 An \code{enrichResult} instance.
@@ -46,9 +49,15 @@ MeSH term enrichment analysis
 }
 \examples{
 \dontrun{
+library(meshes)
+library(AnnotationHub)
+ah <- AnnotationHub()
+qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+filepath_hsa <- qr_hsa[[1]]
+db <- MeSHDbi::MeSHDb(filepath_hsa)
 data(geneList, package="DOSE")
 de <- names(geneList)[1:100]
-x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C')
+x <- enrichMeSH(de, MeSHDb = db, database='gendoo', category = 'C')
 }
 }
 \seealso{

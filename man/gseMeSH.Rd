@@ -18,6 +18,7 @@ gseMeSH(
   verbose = TRUE,
   seed = FALSE,
   by = "fgsea",
+  meshdbVersion = NULL,
   ...
 )
 }
@@ -48,6 +49,8 @@ gseMeSH(
 
 \item{by}{one of 'fgsea' or 'DOSE'}
 
+\item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
+
 \item{...}{other parameter}
 }
 \value{
@@ -58,8 +61,14 @@ Gene Set Enrichment Analysis of MeSH
 }
 \examples{
 \dontrun{
+library(meshes)
+library(AnnotationHub)
+ah <- AnnotationHub()
+qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+filepath_hsa <- qr_hsa[[1]]
+db <- MeSHDbi::MeSHDb(filepath_hsa)
 data(geneList, package="DOSE")
-y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+y <- gseMeSH(geneList, MeSHDb = db, database = 'gene2pubmed', category = "G")
 }
 }
 \author{

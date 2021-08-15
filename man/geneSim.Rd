@@ -24,7 +24,13 @@ score matrix
 semantic similarity between two gene vector
 }
 \examples{
-## hsamd <- meshdata("MeSH.Hsa.eg.db", category='A', computeIC=T, database="gendoo")
+## library(meshes)
+## library(AnnotationHub)
+## ah <- AnnotationHub()
+## qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+## filepath_hsa <- qr_hsa[[1]]
+## db <- MeSHDbi::MeSHDb(filepath_hsa)
+## hsamd <- meshdata(db, category='A', computeIC=T, database="gendoo")
 data(hsamd)
 geneSim("241", "251", semData=hsamd, measure="Wang", combine="BMA")
 }

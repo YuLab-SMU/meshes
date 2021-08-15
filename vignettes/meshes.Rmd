@@ -16,8 +16,6 @@ output:
 vignette: >
   % \VignetteIndexEntry{meshes}
   % \VignetteEngine{knitr::rmarkdown}
-  %\VignetteDepends{MeSH.Hsa.eg.db}
-  %\VignetteDepends{MeSH.db}
   % \usepackage[utf8]{inputenc}
   %\VignetteEncoding{UTF-8}
 ---
