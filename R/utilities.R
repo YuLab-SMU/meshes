@@ -126,8 +126,11 @@ getAncestors <- function(meshID) {
 
 #' Get MeSH.db
 #'
-#' @param meshdbVersion version of MeSH.db
-get_meshdb <- function(meshdbVersion) {
+#' @param meshdbVersion version of MeSH.db. Using latest version if meshdbVersion was set to NULL
+#' @importFrom AnnotationHub AnnotationHub
+#' @importFrom AnnotationHub query
+#' @noRd
+get_meshdb <- function(meshdbVersion = NULL) {
     ah <- AnnotationHub::AnnotationHub()
     if (is.null(meshdbVersion)) {
         dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db"))[[1]]

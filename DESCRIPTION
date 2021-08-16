@@ -1,7 +1,8 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.19.0.991
-Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
+Version: 1.19.1
+Authors@R: c( person(given = "Guangchuang", family = "Yu",        email = "guangchuangyu@gmail.com",   role = c("aut", "cre")),
+              person(given = "Erqiang",     family = "Hu",        email = "13766876214@163.com",       role = "ctb"))
 Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
 	     used to manually index articles for MEDLINE/PubMed. MeSH terms were
 	     associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
