@@ -12,16 +12,22 @@
 ##' @param qvalueCutoff qvalue cutoff
 ##' @param minGSSize minimal size of genes annotated by Ontology term for testing.
 ##' @param maxGSSize maximal size of genes annotated for testing
+##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
 ##' @return An \code{enrichResult} instance.
 ##' @importClassesFrom DOSE enrichResult
-##' @importFrom MeSH.db MeSH.db
 ##' @export
 ##' @seealso \code{class?enrichResult}
 ##' @examples
 ##' \dontrun{
+##' library(meshes)
+##' library(AnnotationHub)
+##' ah <- AnnotationHub()
+##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' filepath_hsa <- qr_hsa[[1]]
+##' db <- MeSHDbi::MeSHDb(filepath_hsa)
 ##' data(geneList, package="DOSE")
 ##' de <- names(geneList)[1:100]
-##' x <- enrichMeSH(de, MeSHDb = "MeSH.Hsa.eg.db", database='gendoo', category = 'C')
+##' x <- enrichMeSH(de, MeSHDb = db, database='gendoo', category = 'C')
 ##' }
 ##' @author Guangchuang Yu
 enrichMeSH <- function(gene,
@@ -33,7 +39,8 @@ enrichMeSH <- function(gene,
                        universe,
                        qvalueCutoff = 0.2,
                        minGSSize = 10,
-                       maxGSSize = 500) {
+                       maxGSSize = 500,
+                       meshdbVersion = NULL) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
 
@@ -46,8 +53,7 @@ enrichMeSH <- function(gene,
                              maxGSSize = maxGSSize,
                              USER_DATA = MeSH_DATA
                              )
-
-    meshdb <- MeSH.db
+    meshdb <- get_meshdb(meshdbVersion = meshdbVersion)
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
@@ -69,8 +75,8 @@ get_MeSH_data <- function(MeSHDb, database, category) {
         stop("please check your 'category' parameter...")
     }
 
-    db <- get_fun_from_pkg(MeSHDb, MeSHDb)
-    mesh <- select(db, keys=database, columns = c("GENEID", "MESHID","MESHCATEGORY"), keytype = "SOURCEDB")
+    # db <- get_fun_from_pkg(MeSHDb, MeSHDb)
+    mesh <- select(MeSHDb, keys=database, columns = c("GENEID", "MESHID","MESHCATEGORY"), keytype = "SOURCEDB")
 
     mesh <- mesh[ mesh[,3] %in% category, ]
     mesh2gene <- mesh[, c(2,1)]
@@ -80,8 +86,4 @@ get_MeSH_data <- function(MeSHDb, database, category) {
 
     build_Anno(mesh2gene)
 }
-
-
-
-
 

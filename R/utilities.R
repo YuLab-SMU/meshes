@@ -27,7 +27,15 @@
 ##' @importFrom GOSemSim load_OrgDb
 ##' @export
 ##' @examples
-##' meshdata("MeSH.Cel.eg.db", category='A', computeIC=FALSE, database="gene2pubmed")
+##' \dontrun{
+##' library(meshes)
+##' library(AnnotationHub)
+##' ah <- AnnotationHub()
+##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' filepath_hsa <- qr_hsa[[1]]
+##' db <- MeSHDbi::MeSHDb(filepath_hsa)
+##' hsamd <- meshdata(db, category='A', computeIC=T, database="gendoo")
+##' }
 ##' @author Guangchuang Yu 
 meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
     if (is.null(MeSHDb)) {
@@ -35,7 +43,7 @@ meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
                    ont = category))
     }
 
-    MeSHDb <- load_OrgDb(MeSHDb)
+    # MeSHDb <- load_OrgDb(MeSHDb)
     SOURCEDB <- keys(MeSHDb, keytype="SOURCEDB")
     if (!database %in% SOURCEDB) {
         msg <- paste0("supported database is/are '", paste(SOURCEDB, sep='/'), "', input parameter not matched...")
@@ -112,6 +120,22 @@ getAncestors <- function(meshID) {
         id <- pid
     }
     return(unique(res))
+}
+
+
+
+#' Get MeSH.db
+#'
+#' @param meshdbVersion version of MeSH.db
+get_meshdb <- function(meshdbVersion) {
+    ah <- AnnotationHub::AnnotationHub()
+    if (is.null(meshdbVersion)) {
+        dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db"))[[1]]
+    } else {
+        dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db", meshdbVersion))[[1]]
+    }
+    
+    MeSHDbi::MeSHDb(dbfile)
 }
 
 

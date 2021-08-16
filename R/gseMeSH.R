@@ -15,14 +15,21 @@
 ##' @param verbose print message or not
 ##' @param seed logical
 ##' @param by one of 'fgsea' or 'DOSE'
+##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
 ##' @param ... other parameter
 ##' @importClassesFrom DOSE gseaResult
 ##' @export
 ##' @return gseaResult object
 ##' @examples
 ##' \dontrun{
+##' library(meshes)
+##' library(AnnotationHub)
+##' ah <- AnnotationHub()
+##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' filepath_hsa <- qr_hsa[[1]]
+##' db <- MeSHDbi::MeSHDb(filepath_hsa)
 ##' data(geneList, package="DOSE")
-##' y <- gseMeSH(geneList, MeSHDb = "MeSH.Hsa.eg.db", database = 'gene2pubmed', category = "G")
+##' y <- gseMeSH(geneList, MeSHDb = db, database = 'gene2pubmed', category = "G")
 ##' }
 ##' @author Yu Guangchuang
 gseMeSH <- function(geneList,
@@ -38,6 +45,7 @@ gseMeSH <- function(geneList,
                     verbose       = TRUE,
                     seed          = FALSE,
                     by            = 'fgsea',
+                    meshdbVersion = NULL,
                     ...) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
@@ -56,7 +64,8 @@ gseMeSH <- function(geneList,
                           ...)
     
 
-    meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
+    # meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
+    meshdb <- get_meshdb(meshdbVersion = meshdbVersion)
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]

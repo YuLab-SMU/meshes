@@ -38,7 +38,7 @@ cat(packageDescription('meshes')$Description)
 
 
 
-For details, please visit <https://yulab-smu.github.io/clusterProfiler-book/>.
+For details, please visit <https://yulab-smu.top/biomedical-knowledge-mining-book/>.
 
 
 ## :writing_hand: Authors
