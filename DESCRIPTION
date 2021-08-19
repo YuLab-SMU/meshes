@@ -21,10 +21,10 @@ Imports:
     enrichplot,
     GOSemSim,
     methods,
-    rvcheck,
     utils,
     AnnotationHub,
-    MeSHDbi
+    MeSHDbi,
+    yulab.utils
 Suggests:
     knitr,
     rmarkdown,
