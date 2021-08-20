@@ -63,7 +63,7 @@ enrichMeSH <- function(gene,
     return(res)
 }
 
-##' @importFrom rvcheck get_fun_from_pkg
+##' @importFrom yulab.utils get_fun_from_pkg
 get_MeSH_data <- function(MeSHDb, database, category) {
     category <- toupper(category)
     categories <- c("A", "B", "C", "D",
