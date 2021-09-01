@@ -131,6 +131,16 @@ getAncestors <- function(meshID) {
 #' @importFrom AnnotationHub query
 #' @noRd
 get_meshdb <- function(meshdbVersion = NULL) {
+    .meshesEnv <- get_mesh_env()
+    if (exists("meshdb", envir = .meshesEnv) &&
+        exists("meshdbVersion", envir = .meshesEnv)) {
+        meshdbVersion2 <- get('meshdbVersion', envir = .meshesEnv)
+        if (identical(meshdbVersion,  meshdbVersion2)) {
+            meshdb <- get("meshdb", envir = .meshesEnv)
+            return(meshdb)
+        }
+    }
+   
     ah <- AnnotationHub::AnnotationHub()
     if (is.null(meshdbVersion)) {
         dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db"))[[1]]
@@ -138,7 +148,16 @@ get_meshdb <- function(meshdbVersion = NULL) {
         dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db", meshdbVersion))[[1]]
     }
     
-    MeSHDbi::MeSHDb(dbfile)
+    meshdb <- MeSHDbi::MeSHDb(dbfile)
+    assign("meshdb", meshdb, envir = .meshesEnv)
+    assign("meshdbVersion", meshdbVersion, envir = .meshesEnv)
+    return(meshdb)
+}
+
+
+get_mesh_env <- function () {
+    if (!exists(".meshesEnv")) .initial()
+    get(".meshesEnv", envir = .GlobalEnv)
 }
 
 

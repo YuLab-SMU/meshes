@@ -63,8 +63,19 @@ enrichMeSH <- function(gene,
     return(res)
 }
 
+
 ##' @importFrom yulab.utils get_fun_from_pkg
 get_MeSH_data <- function(MeSHDb, database, category) {
+    .meshesenv <- get_mesh_env()
+    
+    if (exists("meshtable", envir=.meshesenv)) {
+        mesh <- get("meshtable", envir = .meshesenv)
+    } else {
+        ## db <- get_fun_from_pkg(MeSHDb, MeSHDb)
+        mesh <- select(MeSHDb, keys=database, columns = c("GENEID", "MESHID","MESHCATEGORY"), keytype = "SOURCEDB")
+        assign("meshtable", mesh, envir = .meshesenv)
+    }
+
     category <- toupper(category)
     categories <- c("A", "B", "C", "D",
                     "E", "F", "G", "H",
@@ -74,9 +85,6 @@ get_MeSH_data <- function(MeSHDb, database, category) {
     if (!all(category %in% categories)) {
         stop("please check your 'category' parameter...")
     }
-
-    # db <- get_fun_from_pkg(MeSHDb, MeSHDb)
-    mesh <- select(MeSHDb, keys=database, columns = c("GENEID", "MESHID","MESHCATEGORY"), keytype = "SOURCEDB")
 
     mesh <- mesh[ mesh[,3] %in% category, ]
     mesh2gene <- mesh[, c(2,1)]
