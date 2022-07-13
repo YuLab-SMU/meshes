@@ -16,6 +16,7 @@
 ##' @param seed logical
 ##' @param by one of 'fgsea' or 'DOSE'
 ##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
+##' @param gson a GSON object.
 ##' @param ... other parameter
 ##' @importClassesFrom DOSE gseaResult
 ##' @export
@@ -30,6 +31,9 @@
 ##' db <- MeSHDbi::MeSHDb(filepath_hsa)
 ##' data(geneList, package="DOSE")
 ##' y <- gseMeSH(geneList, MeSHDb = db, database = 'gene2pubmed', category = "G")
+
+##' gsonMesh <- gson_mesh(MeSHDb = db, database = 'gene2pubmed', category = "G")
+##' y2 <- gseMeSH(geneList, gson = gson)
 ##' }
 ##' @author Yu Guangchuang
 gseMeSH <- function(geneList,
@@ -46,9 +50,16 @@ gseMeSH <- function(geneList,
                     seed          = FALSE,
                     by            = 'fgsea',
                     meshdbVersion = NULL,
+                    gson = NULL,
                     ...) {
-
-    MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
+    if (is.null(gson)) {
+        MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)      
+        species <- get_organism(MeSHDb)  
+    } else {
+        MeSH_DATA <- gson
+        species <- MeSH_DATA@sapiens
+    }
+   
     
     res <-  GSEA_internal(geneList         = geneList,
                           exponent         = exponent,
@@ -69,7 +80,7 @@ gseMeSH <- function(geneList,
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
-    res@organism <- get_organism(MeSHDb)
+    res@organism <- species
     res@setType <- "MeSH"
 
     return(res)

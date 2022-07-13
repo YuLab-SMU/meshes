@@ -13,6 +13,7 @@
 ##' @param minGSSize minimal size of genes annotated by Ontology term for testing.
 ##' @param maxGSSize maximal size of genes annotated for testing
 ##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
+##' @param gson a GSON object
 ##' @return An \code{enrichResult} instance.
 ##' @importClassesFrom DOSE enrichResult
 ##' @export
@@ -28,6 +29,9 @@
 ##' data(geneList, package="DOSE")
 ##' de <- names(geneList)[1:100]
 ##' x <- enrichMeSH(de, MeSHDb = db, database='gendoo', category = 'C')
+
+##' gsonMesh <- gson_mesh(MeSHDb = db, database = 'gene2pubmed', category = "G")
+##' x2 <- enrichMeSH(de, gson = gsonMesh)
 ##' }
 ##' @author Guangchuang Yu
 enrichMeSH <- function(gene,
@@ -40,9 +44,17 @@ enrichMeSH <- function(gene,
                        qvalueCutoff = 0.2,
                        minGSSize = 10,
                        maxGSSize = 500,
-                       meshdbVersion = NULL) {
+                       meshdbVersion = NULL,
+                       gson = NULL) {
 
-    MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
+    if (is.null(gson)) {
+        MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)      
+        species <- get_organism(MeSHDb)  
+    } else {
+        MeSH_DATA <- gson
+        species <- MeSH_DATA@sapiens
+    }
+   
 
     res <- enricher_internal(gene,
                              pvalueCutoff=pvalueCutoff,
@@ -57,7 +69,7 @@ enrichMeSH <- function(gene,
     id <- res@result$ID
     mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
     res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
-    res@organism <- get_organism(MeSHDb)
+    res@organism <- species
     res@ontology <- "MeSH"
 
     return(res)

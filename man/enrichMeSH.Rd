@@ -15,7 +15,8 @@ enrichMeSH(
   qvalueCutoff = 0.2,
   minGSSize = 10,
   maxGSSize = 500,
-  meshdbVersion = NULL
+  meshdbVersion = NULL,
+  gson = NULL
 )
 }
 \arguments{
@@ -40,6 +41,8 @@ enrichMeSH(
 \item{maxGSSize}{maximal size of genes annotated for testing}
 
 \item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
+
+\item{gson}{a GSON object}
 }
 \value{
 An \code{enrichResult} instance.
@@ -58,6 +61,8 @@ db <- MeSHDbi::MeSHDb(filepath_hsa)
 data(geneList, package="DOSE")
 de <- names(geneList)[1:100]
 x <- enrichMeSH(de, MeSHDb = db, database='gendoo', category = 'C')
+gsonMesh <- gson_mesh(MeSHDb = db, database = 'gene2pubmed', category = "G")
+x2 <- enrichMeSH(de, gson = gsonMesh)
 }
 }
 \seealso{
