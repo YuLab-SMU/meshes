@@ -94,3 +94,4 @@ get_MeSH_data <- function(MeSHDb, database, category) {
 
     build_Anno(mesh2gene)
 }
+

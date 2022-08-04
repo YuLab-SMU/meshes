@@ -1,5 +1,5 @@
 # meshes 1.23.0.991
-+ support GSON object for `enrichMeSH(gson)` and `gseMeSH(gson)` (2022-7-13, Wed)
++ add `gson_mesh()` (2022-7-13, Wed)
 
 # meshes 1.19.3
 
