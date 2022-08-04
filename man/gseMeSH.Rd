@@ -19,7 +19,6 @@ gseMeSH(
   seed = FALSE,
   by = "fgsea",
   meshdbVersion = NULL,
-  gson = NULL,
   ...
 )
 }
@@ -52,8 +51,6 @@ gseMeSH(
 
 \item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
 
-\item{gson}{a GSON object.}
-
 \item{...}{other parameter}
 }
 \value{
@@ -72,8 +69,6 @@ filepath_hsa <- qr_hsa[[1]]
 db <- MeSHDbi::MeSHDb(filepath_hsa)
 data(geneList, package="DOSE")
 y <- gseMeSH(geneList, MeSHDb = db, database = 'gene2pubmed', category = "G")
-gsonMesh <- gson_mesh(MeSHDb = db, database = 'gene2pubmed', category = "G")
-y2 <- gseMeSH(geneList, gson = gson)
 }
 }
 \author{
