@@ -1,6 +1,6 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.24.0
+Version: 1.25.0
 Authors@R: c( person(given = "Guangchuang", family = "Yu",        email = "guangchuangyu@gmail.com",   role = c("aut", "cre")),
               person(given = "Erqiang",     family = "Hu",        email = "13766876214@163.com",       role = "ctb"))
 Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
