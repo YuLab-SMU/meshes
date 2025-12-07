@@ -24,7 +24,6 @@
 ##' @importFrom AnnotationDbi keys
 ##' @importFrom methods new
 ##' @importClassesFrom GOSemSim GOSemSimDATA
-##' @importFrom GOSemSim load_OrgDb
 ##' @export
 ##' @examples
 ##' \dontrun{

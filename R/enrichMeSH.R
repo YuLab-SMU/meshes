@@ -9,12 +9,13 @@
 ##' @param pvalueCutoff Cutoff value of pvalue.
 ##' @param pAdjustMethod one of "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
 ##' @param universe background genes
-##' @param qvalueCutoff qvalue cutoff
 ##' @param minGSSize minimal size of genes annotated by Ontology term for testing.
 ##' @param maxGSSize maximal size of genes annotated for testing
+##' @param qvalueCutoff qvalue cutoff
 ##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
 ##' @return An \code{enrichResult} instance.
-##' @importClassesFrom DOSE enrichResult
+##' @importClassesFrom enrichit enrichResult
+##' @importFrom enrichit ora_gson
 ##' @export
 ##' @seealso \code{class?enrichResult}
 ##' @examples
@@ -36,35 +37,30 @@ enrichMeSH <- function(gene,
                        category = 'C',
                        pvalueCutoff=0.05,
                        pAdjustMethod="BH",
-                       universe,
-                       qvalueCutoff = 0.2,
+                       universe = NULL,
                        minGSSize = 10,
                        maxGSSize = 500,
+                       qvalueCutoff = 0.2,
                        meshdbVersion = NULL) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
 
-    res <- enricher_internal(gene,
-                             pvalueCutoff=pvalueCutoff,
-                             pAdjustMethod=pAdjustMethod,
-                             universe = universe,
-                             qvalueCutoff = qvalueCutoff,
-                             minGSSize = minGSSize,
-                             maxGSSize = maxGSSize,
-                             USER_DATA = MeSH_DATA
-                             )
-    meshdb <- get_meshdb(meshdbVersion = meshdbVersion)
-    id <- res@result$ID
-    mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
-    res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
-    res@organism <- get_organism(MeSHDb)
-    res@ontology <- "MeSH"
+    res <- ora_gson(gene = gene,
+                    pvalueCutoff=pvalueCutoff,
+                    pAdjustMethod=pAdjustMethod,
+                    universe = universe,
+                    minGSSize = minGSSize,
+                    maxGSSize = maxGSSize,
+                    qvalueCutoff = qvalueCutoff,
+                    gson = MeSH_DATA
+                    )
 
     return(res)
 }
 
 
 ##' @importFrom yulab.utils get_fun_from_pkg
+##' @importFrom gson gson
 get_MeSH_data <- function(MeSHDb, database, category) {
     .meshesenv <- get_mesh_env()
     
@@ -90,8 +86,10 @@ get_MeSH_data <- function(MeSHDb, database, category) {
     mesh2gene <- mesh[, c(2,1)]
 
     ## meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
-    ## mesh2name <- select(meshdb, keys=unique(mesh2gene[,1]), columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
+    mesh2name <- select(MeSHDb, keys=unique(mesh2gene[,1]), columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
 
-    build_Anno(mesh2gene)
+    gson(gsid2gene = mesh2gene, 
+        gsid2name = mesh2name, 
+        species = get_organism(MeSHDb),
+        gsname = "MeSH")
 }
-

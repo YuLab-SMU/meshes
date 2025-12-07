@@ -1,24 +1,24 @@
-##' @importFrom enrichplot cnetplot
-##' @export
-enrichplot::cnetplot
+## ##' @importFrom enrichplot cnetplot
+## ##' @export
+## enrichplot::cnetplot
 
-##' @importFrom enrichplot dotplot
-##' @export
-enrichplot::dotplot
+## ##' @importFrom enrichplot dotplot
+## ##' @export
+## enrichplot::dotplot
 
-##' @importFrom enrichplot emapplot
-##' @export
-enrichplot::emapplot
+## ##' @importFrom enrichplot emapplot
+## ##' @export
+## enrichplot::emapplot
 
 
-##' @importFrom enrichplot gseaplot
-##' @export
-enrichplot::gseaplot
+## ##' @importFrom enrichplot gseaplot
+## ##' @export
+## enrichplot::gseaplot
 
-##' @importFrom enrichplot heatplot
-##' @export
-enrichplot::heatplot
+## ##' @importFrom enrichplot heatplot
+## ##' @export
+## enrichplot::heatplot
 
-##' @importFrom enrichplot ridgeplot
-##' @export
-enrichplot::ridgeplot
+## ##' @importFrom enrichplot ridgeplot
+## ##' @export
+## enrichplot::ridgeplot

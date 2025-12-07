@@ -11,10 +11,10 @@ enrichMeSH(
   category = "C",
   pvalueCutoff = 0.05,
   pAdjustMethod = "BH",
-  universe,
-  qvalueCutoff = 0.2,
+  universe = NULL,
   minGSSize = 10,
   maxGSSize = 500,
+  qvalueCutoff = 0.2,
   meshdbVersion = NULL
 )
 }
@@ -33,11 +33,11 @@ enrichMeSH(
 
 \item{universe}{background genes}
 
-\item{qvalueCutoff}{qvalue cutoff}
-
 \item{minGSSize}{minimal size of genes annotated by Ontology term for testing.}
 
 \item{maxGSSize}{maximal size of genes annotated for testing}
+
+\item{qvalueCutoff}{qvalue cutoff}
 
 \item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
 }

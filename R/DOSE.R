@@ -1,18 +1,14 @@
-##' @importMethodsFrom DOSE show
-##' @importMethodsFrom DOSE summary
-
-##' @importFrom DOSE geneID
+##' @importMethodsFrom enrichit show
+##' @importMethodsFrom enrichit summary
+##'
+##' @importFrom enrichit geneID
 ##' @export
-DOSE::geneID
+enrichit::geneID
 
-##' @importFrom DOSE geneInCategory
+##' @importFrom enrichit geneInCategory
 ##' @export
-DOSE::geneInCategory
+enrichit::geneInCategory
 
-build_Anno <- getFromNamespace("build_Anno", "DOSE")
-enricher_internal <- getFromNamespace("enricher_internal", "DOSE")
-GSEA_internal <- getFromNamespace("GSEA_internal", "DOSE")
-get_organism <- getFromNamespace("get_organism", "DOSE")
-
-
-
+##' @importFrom GOSemSim get_organism
+##' @export
+GOSemSim::get_organism

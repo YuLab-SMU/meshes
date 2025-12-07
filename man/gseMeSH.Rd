@@ -9,16 +9,13 @@ gseMeSH(
   MeSHDb,
   database = "gendoo",
   category = "C",
+  nPerm = 1000,
   exponent = 1,
   minGSSize = 10,
   maxGSSize = 500,
-  eps = 1e-10,
   pvalueCutoff = 0.05,
   pAdjustMethod = "BH",
   verbose = TRUE,
-  seed = FALSE,
-  by = "fgsea",
-  meshdbVersion = NULL,
   ...
 )
 }
@@ -31,25 +28,19 @@ gseMeSH(
 
 \item{category}{one of "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M", "N", "V", "Z"}
 
+\item{nPerm}{number of permutations.}
+
 \item{exponent}{weight of each step}
 
 \item{minGSSize}{minimal size of each geneSet for analyzing}
 
 \item{maxGSSize}{maximal size of genes annotated for testing}
 
-\item{eps}{This parameter sets the boundary for calculating the p value.}
-
 \item{pvalueCutoff}{pvalue Cutoff}
 
 \item{pAdjustMethod}{pvalue adjustment method}
 
 \item{verbose}{print message or not}
-
-\item{seed}{logical}
-
-\item{by}{one of 'fgsea' or 'DOSE'}
-
-\item{meshdbVersion}{version of MeSH.db. If NULL(the default), use the latest version.}
 
 \item{...}{other parameter}
 }

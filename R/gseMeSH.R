@@ -6,18 +6,16 @@
 ##' @param MeSHDb MeSHDb
 ##' @param database one of 'gendoo', 'gene2pubmed' or 'RBBH'
 ##' @param category one of "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M", "N", "V", "Z"
+##' @param nPerm number of permutations.
 ##' @param exponent weight of each step
 ##' @param minGSSize minimal size of each geneSet for analyzing
 ##' @param maxGSSize maximal size of genes annotated for testing
-##' @param eps This parameter sets the boundary for calculating the p value.
 ##' @param pvalueCutoff pvalue Cutoff
 ##' @param pAdjustMethod pvalue adjustment method
 ##' @param verbose print message or not
-##' @param seed logical
-##' @param by one of 'fgsea' or 'DOSE'
-##' @param meshdbVersion version of MeSH.db. If NULL(the default), use the latest version.
 ##' @param ... other parameter
-##' @importClassesFrom DOSE gseaResult
+##' @importClassesFrom enrichit gseaResult
+##' @importFrom enrichit gsea_gson
 ##' @export
 ##' @return gseaResult object
 ##' @examples
@@ -36,40 +34,28 @@ gseMeSH <- function(geneList,
                     MeSHDb,
                     database      = 'gendoo',
                     category      = 'C',
+                    nPerm         = 1000,
                     exponent      = 1,
                     minGSSize     = 10,
                     maxGSSize     = 500,
-                    eps           = 1e-10,
-                    pvalueCutoff  =0.05,
-                    pAdjustMethod ="BH",
+                    pvalueCutoff  = 0.05,
+                    pAdjustMethod = "BH",
                     verbose       = TRUE,
-                    seed          = FALSE,
-                    by            = 'fgsea',
-                    meshdbVersion = NULL,
                     ...) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
     
-    res <-  GSEA_internal(geneList         = geneList,
-                          exponent         = exponent,
-                          minGSSize        = minGSSize,
-                          maxGSSize        = maxGSSize,
-                          eps              = eps,
-                          pvalueCutoff     = pvalueCutoff,
-                          pAdjustMethod    = pAdjustMethod,
-                          verbose          = verbose,
-                          USER_DATA        = MeSH_DATA,
-                          seed             = seed,
-                          by               = by,
-                          ...)
+    res <-  gsea_gson(geneList         = geneList,
+                      gson             = MeSH_DATA,
+                      nPerm            = nPerm,
+                      exponent         = exponent,
+                      minGSSize        = minGSSize,
+                      maxGSSize        = maxGSSize,
+                      pvalueCutoff     = pvalueCutoff,
+                      pAdjustMethod    = pAdjustMethod,
+                      verbose          = verbose,
+                      ...)
     
-
-    # meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
-    meshdb <- get_meshdb(meshdbVersion = meshdbVersion)
-    id <- res@result$ID
-    mesh2name <- select(meshdb, keys=id, columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
-    res@result$Description <- mesh2name[match(id, mesh2name[,1]), 2]
-    res@organism <- get_organism(MeSHDb)
     res@setType <- "MeSH"
 
     return(res)
