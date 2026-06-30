@@ -98,11 +98,11 @@ computeIC <- function(meshAnno, category) {
 }
 
 getOffsprings <- function(meshID) {
-    meshtbl <- get("meshtbl", envir=.meshesEnv)
+    children <- get_mesh_children()
     res <- c()
     id <- meshID
-    while(any(id %in% meshtbl$parent)) {
-        cid <- meshtbl[meshtbl$parent %in% id, "meshID"]
+    while(any(id %in% names(children))) {
+        cid <- unlist(children[id], use.names = FALSE)
         res <- c(res, cid)
         id <- cid
     }
@@ -110,15 +110,33 @@ getOffsprings <- function(meshID) {
 }
 
 getAncestors <- function(meshID) {
-    meshtbl <- get("meshtbl", envir=.meshesEnv)
+    parents <- get_mesh_parents()
     res <- c()
     id <- meshID
-    while(any(id %in% meshtbl$meshID)) {
-        pid <- meshtbl[meshtbl$meshID %in% id, "parent"]
+    while(any(id %in% names(parents))) {
+        pid <- unlist(parents[id], use.names = FALSE)
         res <- c(res, pid)
         id <- pid
     }
     return(unique(res))
+}
+
+get_mesh_children <- function() {
+    .meshesEnv <- get_mesh_env()
+    if (!exists("mesh_children", envir = .meshesEnv, inherits = FALSE)) {
+        meshtbl <- get("meshtbl", envir = .meshesEnv)
+        assign("mesh_children", split(meshtbl$meshID, meshtbl$parent), envir = .meshesEnv)
+    }
+    get("mesh_children", envir = .meshesEnv)
+}
+
+get_mesh_parents <- function() {
+    .meshesEnv <- get_mesh_env()
+    if (!exists("mesh_parents", envir = .meshesEnv, inherits = FALSE)) {
+        meshtbl <- get("meshtbl", envir = .meshesEnv)
+        assign("mesh_parents", split(meshtbl$parent, meshtbl$meshID), envir = .meshesEnv)
+    }
+    get("mesh_parents", envir = .meshesEnv)
 }
 
 

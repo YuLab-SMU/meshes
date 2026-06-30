@@ -13,8 +13,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{enrichit}{\code{\link[enrichit]{geneID}}, \code{\link[enrichit]{geneInCategory}}}
+  \item{enrichit}{\code{\link[enrichit:geneID]{geneID()}}, \code{\link[enrichit:geneInCategory]{geneInCategory()}}}
 
-  \item{GOSemSim}{\code{\link[GOSemSim]{get_organism}}}
+  \item{GOSemSim}{\code{\link[GOSemSim:get_organism]{get_organism()}}}
 }}
 

@@ -1,3 +1,9 @@
+# meshes 1.39.1
+
++ use Quarto for the package vignette and keep examples in the online book (2026-06-30, Tue)
++ update package description to better summarize supported data and analyses (2026-06-30, Tue)
++ improve performance of gene-to-MeSH lookup and MeSH ancestor/offspring traversal (2026-06-30, Tue)
+
 # meshes 1.38.0
 
 + Bioconductor RELEASE_3_23 (2026-04-29, Wed)

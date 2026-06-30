@@ -29,12 +29,13 @@ geneSim <- function(geneID1,
 
     if (!exists(".meshesEnv")) .initial()
 
-    meshid1 <- lapply(geneID1, gene2MeSH, semData=semData)
+    meshids <- gene2MeSHIndex(semData)
+    meshid1 <- gene2MeSHList(geneID1, meshids)
     if (is.null(geneID2)) {
         geneID2 <- geneID1
         meshid2 <- meshid1
     } else {
-        meshid2 <- lapply(geneID2, gene2MeSH, semData=semData)
+        meshid2 <- gene2MeSHList(geneID2, meshids)
     }
 
     m <- length(geneID1)
@@ -75,4 +76,13 @@ geneSim <- function(geneID1,
 gene2MeSH <- function(geneID, semData) {
     meshAnno <- semData@geneAnno
     meshAnno[meshAnno$GENEID == geneID, "MESHID"]
+}
+
+gene2MeSHIndex <- function(semData) {
+    meshAnno <- semData@geneAnno
+    split(meshAnno$MESHID, meshAnno$GENEID)
+}
+
+gene2MeSHList <- function(geneID, meshids) {
+    unname(meshids[as.character(geneID)])
 }

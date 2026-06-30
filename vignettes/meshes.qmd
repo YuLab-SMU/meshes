@@ -1,0 +1,108 @@
+---
+title: "MeSH Enrichment and Semantic Analyses"
+author:
+  - name: Guangchuang Yu
+    email: guangchuangyu@gmail.com
+    affiliation: Department of Bioinformatics, School of Basic Medical Sciences, Southern Medical University
+date: today
+format:
+  html:
+    toc: true
+    theme: cosmo
+vignette: >
+  %\VignetteIndexEntry{meshes}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+`meshes` provides tools for MeSH (Medical Subject Headings) enrichment and
+semantic similarity analysis. MeSH is the controlled vocabulary used by the
+National Library of Medicine to index biomedical literature, and it provides a
+structured way to describe diseases, chemicals, anatomy, organisms, techniques
+and other biomedical concepts.
+
+The package links MeSH terms to Entrez Gene identifiers and supports workflows
+for both enrichment analysis and semantic comparison.
+
+For worked examples and extended tutorials, please see the online book:
+<https://yulab-smu.top/biomedical-knowledge-mining-book/>.
+
+## Supported Data
+
+`meshes` works with MeSH annotation data for more than 70 species. Gene-to-MeSH
+associations can be derived from the following sources:
+
+- `gendoo`
+- `gene2pubmed`
+- `RBBH`
+
+The package supports standard MeSH categories:
+
+- `A`: Anatomy
+- `B`: Organisms
+- `C`: Diseases
+- `D`: Chemicals and Drugs
+- `E`: Analytical, Diagnostic and Therapeutic Techniques and Equipment
+- `F`: Psychiatry and Psychology
+- `G`: Phenomena and Processes
+- `H`: Disciplines and Occupations
+- `I`: Anthropology, Education, Sociology and Social Phenomena
+- `J`: Technology, Industry and Agriculture
+- `K`: Humanities
+- `L`: Information Science
+- `M`: Named Groups
+- `N`: Health Care
+- `V`: Publication Characteristics
+- `Z`: Geographicals
+
+For semantic similarity analysis, annotation data are prepared with
+`meshdata()`. The resulting object stores the selected MeSH category,
+gene-to-MeSH annotations and, optionally, information content values.
+
+## Supported Analyses
+
+The main analysis tasks are:
+
+- Over-representation analysis with `enrichMeSH()`.
+- Gene set enrichment analysis with `gseMeSH()`.
+- Semantic similarity between MeSH terms with `meshSim()`.
+- Semantic similarity between genes or gene groups with `geneSim()`.
+
+Semantic similarity can be calculated with the following methods:
+
+- `Wang`
+- `Resnik`
+- `Rel`
+- `Jiang`
+- `Lin`
+
+Gene-level semantic similarity can combine multiple MeSH term scores with:
+
+- `max`
+- `avg`
+- `rcmax`
+- `BMA`
+
+## Learn More
+
+The package vignette intentionally keeps the local documentation concise. Full
+examples, analysis workflows and interpretation guidance are maintained in the
+online book:
+
+- <https://yulab-smu.top/biomedical-knowledge-mining-book/>
+
+## Citation
+
+If you use `meshes` in published research, please cite:
+
+Yu G. Using meshes for MeSH term enrichment and semantic analyses.
+*Bioinformatics*. 2018, 34(21):3766-3767.
+<https://doi.org/10.1093/bioinformatics/bty410>.
+
+## Getting Help
+
+For questions or issues, please post to the
+[Bioconductor support site](https://support.bioconductor.org/) and tag your post
+with `meshes`.

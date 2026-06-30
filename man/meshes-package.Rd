@@ -6,7 +6,7 @@
 \alias{meshes-package}
 \title{meshes: MeSH Enrichment and Semantic analyses}
 \description{
-MeSH (Medical Subject Headings) is the NLM controlled vocabulary used to manually index articles for MEDLINE/PubMed. MeSH terms were associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH. This association is fundamental for enrichment and semantic analyses. meshes supports enrichment analysis (over-representation and gene set enrichment analysis) of gene list or whole expression profile. The semantic comparisons of MeSH terms provide quantitative ways to compute similarities between genes and gene groups. meshes implemented five methods proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports more than 70 species.
+Provides tools for MeSH (Medical Subject Headings) enrichment and semantic similarity analysis. The package uses MeSH term annotations linked to Entrez Gene identifiers through gendoo, gene2pubmed and RBBH, enabling over-representation analysis, gene set enrichment analysis and semantic comparison of gene lists or ranked expression profiles. It implements Resnik, Schlicker, Jiang, Lin and Wang similarity methods for comparing MeSH terms, genes and gene groups across more than 70 species.
 }
 \seealso{
 Useful links:
@@ -18,6 +18,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Guangchuang Yu \email{guangchuangyu@gmail.com}
+
+Authors:
+\itemize{
+  \item Guangchuang Yu \email{guangchuangyu@gmail.com}
+}
 
 }
 \keyword{internal}

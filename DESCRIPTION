@@ -1,17 +1,14 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.39.0
-Authors@R: c( person(given = "Guangchuang", family = "Yu",        email = "guangchuangyu@gmail.com",   role = c("aut", "cre")))
-Description: MeSH (Medical Subject Headings) is the NLM controlled vocabulary
-	     used to manually index articles for MEDLINE/PubMed. MeSH terms were
-	     associated by Entrez Gene ID by three methods, gendoo, gene2pubmed and RBBH.
-	     This association is fundamental for enrichment and semantic analyses.
-	     meshes supports enrichment analysis (over-representation and gene set
-	     enrichment analysis) of gene list or whole expression profile.
-	     The semantic comparisons of MeSH terms provide quantitative ways to compute
-	     similarities between genes and gene groups. meshes implemented five methods
-	     proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively and supports
-	     more than 70 species.
+Version: 1.39.1
+Authors@R: c(person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",   role = c("aut", "cre")))
+Description: Provides tools for MeSH (Medical Subject Headings) enrichment and
+	     semantic similarity analysis. The package uses MeSH term annotations
+	     linked to Entrez Gene identifiers through gendoo, gene2pubmed and RBBH,
+	     enabling over-representation analysis, gene set enrichment analysis and
+	     semantic comparison of gene lists or ranked expression profiles. It
+	     implements Resnik, Schlicker, Jiang, Lin and Wang similarity methods for
+	     comparing MeSH terms, genes and gene groups across more than 70 species.
 Depends:
     R (>= 4.1.0)
 Imports:
@@ -26,14 +23,13 @@ Imports:
     yulab.utils (>= 0.1.5)
 Suggests:
     knitr,
-    rmarkdown,
-    prettydoc
-VignetteBuilder: knitr
+    quarto
+VignetteBuilder: quarto
 ByteCompile: true
 License: Artistic-2.0
 URL: https://yulab-smu.top/biomedical-knowledge-mining-book/
-BugReports: https://github.com/GuangchuangYu/meshes/issues
+BugReports: https://github.com/YuLab-SMU/meshes/issues
 biocViews: Annotation, Clustering, MultipleComparison, Software
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.0.0
