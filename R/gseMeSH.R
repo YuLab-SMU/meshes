@@ -24,6 +24,7 @@
 ##' library(AnnotationHub)
 ##' ah <- AnnotationHub()
 ##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' ## inspect qr_hsa and select the organism-specific MeSHDb resource
 ##' filepath_hsa <- qr_hsa[[1]]
 ##' db <- MeSHDbi::MeSHDb(filepath_hsa)
 ##' data(geneList, package="DOSE")

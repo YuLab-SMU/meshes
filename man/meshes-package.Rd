@@ -12,7 +12,7 @@ Provides tools for MeSH (Medical Subject Headings) enrichment and semantic simil
 Useful links:
 \itemize{
   \item \url{https://yulab-smu.top/biomedical-knowledge-mining-book/}
-  \item Report bugs at \url{https://github.com/GuangchuangYu/meshes/issues}
+  \item Report bugs at \url{https://github.com/YuLab-SMU/meshes/issues}
 }
 
 }

@@ -31,6 +31,7 @@
 ##' library(AnnotationHub)
 ##' ah <- AnnotationHub()
 ##' qr_hsa <- query(ah, c("MeSHDb", "Homo sapiens"))
+##' ## inspect qr_hsa and select the organism-specific MeSHDb resource
 ##' filepath_hsa <- qr_hsa[[1]]
 ##' db <- MeSHDbi::MeSHDb(filepath_hsa)
 ##' hsamd <- meshdata(db, category='A', computeIC=T, database="gendoo")
@@ -41,6 +42,8 @@ meshdata <- function(MeSHDb=NULL, database, category, computeIC = FALSE) {
         return(new("GOSemSimDATA",
                    ont = category))
     }
+
+    check_MeSHDb(MeSHDb)
 
     # MeSHDb <- load_OrgDb(MeSHDb)
     SOURCEDB <- keys(MeSHDb, keytype="SOURCEDB")
@@ -95,6 +98,31 @@ computeIC <- function(meshAnno, category) {
     p <- cnt/sum(meshcount)
     IC <- -log(p)
     return(IC)
+}
+
+check_MeSHDb <- function(MeSHDb) {
+    expected <- c("GENEID", "MESHCATEGORY", "MESHID", "SOURCEDB")
+    keytypes <- tryCatch(
+        AnnotationDbi::keytypes(MeSHDb),
+        error = function(e) e
+    )
+
+    if (inherits(keytypes, "error") || !all(expected %in% keytypes)) {
+        msg <- paste0(
+            "`MeSHDb` should be an organism-specific MeSHDb annotation ",
+            "database containing a DATA table with columns: ",
+            paste(expected, collapse = ", "), ". ",
+            "When using AnnotationHub, inspect the query result and select ",
+            "the organism-specific MeSHDb resource instead of assuming the ",
+            "first result is suitable."
+        )
+        if (inherits(keytypes, "error")) {
+            msg <- paste0(msg, " Original error: ", conditionMessage(keytypes))
+        }
+        stop(msg, call. = FALSE)
+    }
+
+    invisible(TRUE)
 }
 
 getOffsprings <- function(meshID) {
