@@ -1,5 +1,6 @@
 # meshes 1.39.2
 
++ `gseMeSH()` now exposes an `eps` argument and forwards it to `enrichit::gsea_gson()`, matching the other GSEA wrappers in the family (2026-09-22, Tue)
 + expose an explicit `seed` argument on `gseMeSH()` and forward it to
   `enrichit::gsea_gson()` (2026-08-15, Fri)
   - set it to a number (or TRUE for a fixed default seed) to get identical GSEA

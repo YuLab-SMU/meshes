@@ -10,6 +10,7 @@
 ##' @param exponent weight of each step
 ##' @param minGSSize minimal size of each geneSet for analyzing
 ##' @param maxGSSize maximal size of genes annotated for testing
+##' @param eps boundary for calculating the p value in multilevel mode
 ##' @param pvalueCutoff pvalue Cutoff
 ##' @param pAdjustMethod pvalue adjustment method
 ##' @param verbose print message or not
@@ -44,6 +45,7 @@ gseMeSH <- function(geneList,
                     exponent      = 1,
                     minGSSize     = 10,
                     maxGSSize     = 500,
+                    eps           = 1e-10,
                     pvalueCutoff  = 0.05,
                     pAdjustMethod = "BH",
                     verbose       = TRUE,
@@ -58,6 +60,7 @@ gseMeSH <- function(geneList,
                       exponent         = exponent,
                       minGSSize        = minGSSize,
                       maxGSSize        = maxGSSize,
+                      eps              = eps,
                       pvalueCutoff     = pvalueCutoff,
                       pAdjustMethod    = pAdjustMethod,
                       verbose          = verbose,
