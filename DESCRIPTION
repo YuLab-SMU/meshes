@@ -12,7 +12,7 @@ Description: Provides tools for MeSH (Medical Subject Headings) enrichment and
 Depends:
     R (>= 4.1.0)
 Imports:
-    enrichit,
+    enrichit (>= 0.2.2),
     gson,
     AnnotationDbi,
     GOSemSim (> 2.37.0),

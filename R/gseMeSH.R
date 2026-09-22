@@ -13,6 +13,11 @@
 ##' @param pvalueCutoff pvalue Cutoff
 ##' @param pAdjustMethod pvalue adjustment method
 ##' @param verbose print message or not
+##' @param seed random seed for reproducibility, set to a number (or TRUE to use a
+##'   fixed default seed) to make the result reproducible, or FALSE (default) to draw
+##'   a random seed on each run, so results may vary between runs. The underlying
+##'   permutation engine uses its own RNG seeded with this value; see
+##'   \code{enrichit::gsea()} for details.
 ##' @param ... other parameter
 ##' @importClassesFrom enrichit gseaResult
 ##' @importFrom enrichit gsea_gson
@@ -42,6 +47,7 @@ gseMeSH <- function(geneList,
                     pvalueCutoff  = 0.05,
                     pAdjustMethod = "BH",
                     verbose       = TRUE,
+                    seed          = FALSE,
                     ...) {
 
     MeSH_DATA <- get_MeSH_data(MeSHDb, database, category)
@@ -55,8 +61,12 @@ gseMeSH <- function(geneList,
                       pvalueCutoff     = pvalueCutoff,
                       pAdjustMethod    = pAdjustMethod,
                       verbose          = verbose,
+                      seed             = seed,
                       ...)
-    
+
+    if (is.null(res))
+        return(res)
+
     res@setType <- "MeSH"
 
     return(res)
