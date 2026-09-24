@@ -11,21 +11,31 @@ export(meshdata)
 importClassesFrom(GOSemSim,GOSemSimDATA)
 importClassesFrom(enrichit,enrichResult)
 importClassesFrom(enrichit,gseaResult)
-importFrom(AnnotationDbi,keys)
-importFrom(AnnotationDbi,metadata)
-importFrom(AnnotationDbi,select)
-importFrom(AnnotationHub,AnnotationHub)
-importFrom(AnnotationHub,query)
-importFrom(GOSemSim,combineScores)
-importFrom(GOSemSim,get_organism)
-importFrom(GOSemSim,termSim)
-importFrom(enrichit,geneID)
-importFrom(enrichit,geneInCategory)
-importFrom(enrichit,gsea_gson)
-importFrom(enrichit,ora_gson)
+importFrom(AnnotationDbi,
+  keys,
+  metadata,
+  select
+)
+importFrom(AnnotationHub,
+  AnnotationHub,
+  query
+)
+importFrom(GOSemSim,
+  combineScores,
+  get_organism,
+  termSim
+)
+importFrom(enrichit,
+  geneID,
+  geneInCategory,
+  gsea_gson,
+  ora_gson
+)
 importFrom(gson,gson)
 importFrom(methods,new)
-importFrom(yulab.utils,get_fun_from_pkg)
-importFrom(yulab.utils,yulab_msg)
+importFrom(yulab.utils,
+  get_fun_from_pkg,
+  yulab_msg
+)
 importMethodsFrom(enrichit,show)
 importMethodsFrom(enrichit,summary)

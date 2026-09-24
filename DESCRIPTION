@@ -1,6 +1,6 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.39.1
+Version: 1.39.2
 Authors@R: c(person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",   role = c("aut", "cre")))
 Description: Provides tools for MeSH (Medical Subject Headings) enrichment and
 	     semantic similarity analysis. The package uses MeSH term annotations
@@ -32,4 +32,4 @@ BugReports: https://github.com/YuLab-SMU/meshes/issues
 biocViews: Annotation, Clustering, MultipleComparison, Software
 Encoding: UTF-8
 LazyData: true
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
