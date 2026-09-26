@@ -27,6 +27,24 @@ cat(packageDescription('meshes')$Description)
 
 For details, please visit <https://yulab-smu.top/biomedical-knowledge-mining-book/>.
 
+## :arrow_double_down: Installation
+
+Get the released version from Bioconductor:
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("meshes")
+```
+
+Or install the development version from GitHub:
+
+```r
+if (!requireNamespace("remotes", quietly = TRUE))
+    install.packages("remotes")
+remotes::install_github("YuLab-SMU/meshes")
+```
+
 
 Citation: __*G Yu*__. Using meshes for MeSH term enrichment and semantic analyses. __*Bioinformatics*__ 2018, 34(21):3766-3767. <https://dx.doi.org/10.1093/bioinformatics/bty410>.
 
@@ -36,6 +54,11 @@ Citation: __*G Yu*__. Using meshes for MeSH term enrichment and semantic analyse
 Guangchuang YU  <https://yulab-smu.top>
 
 School of Basic Medical Sciences, Southern Medical University
+
+## :sparkling_heart: Contributing
+
+We welcome any contributions! By participating in this project you agree to
+abide by the terms outlined in the [Contributor Code of Conduct](CONDUCT.md).
 
 
 
