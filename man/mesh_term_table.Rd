@@ -5,6 +5,7 @@
 \alias{mesh_term_table}
 \alias{meshtbl}
 \alias{hsamd}
+\alias{meshterms}
 \title{DATA Sets}
 \description{
 These datasets are used in meshes

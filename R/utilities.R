@@ -169,34 +169,86 @@ get_mesh_parents <- function() {
 
 
 
-#' Get MeSH.db
+get_mesh_term_names <- function(MeSHDb, mesh_ids) {
+    mesh_ids <- unique(as.character(mesh_ids))
+    if (!length(mesh_ids)) {
+        return(data.frame(MESHID = character(), MESHTERM = character(),
+                          stringsAsFactors = FALSE))
+    }
+
+    available <- tryCatch(
+        AnnotationDbi::columns(MeSHDb),
+        error = function(e) character()
+    )
+
+    if ("MESHTERM" %in% available) {
+        res <- AnnotationDbi::select(
+            MeSHDb,
+            keys = mesh_ids,
+            columns = c("MESHID", "MESHTERM"),
+            keytype = "MESHID"
+        )
+        res <- res[!duplicated(res$MESHID), c("MESHID", "MESHTERM"),
+                   drop = FALSE]
+        res$MESHID <- as.character(res$MESHID)
+        res$MESHTERM <- as.character(res$MESHTERM)
+        return(res[match(mesh_ids, res$MESHID), , drop = FALSE])
+    }
+
+    ## Since the current AnnotationHub MeSHDb schema contains only the
+    ## gene-to-MeSH correspondence, use the versioned NLM descriptor map
+    ## bundled with meshes for stable, offline term names.
+    .meshesEnv <- get_mesh_env()
+    if (!exists("meshterms", envir = .meshesEnv, inherits = FALSE)) {
+        utils::data("meshterms", package = "meshes", envir = .meshesEnv)
+    }
+    meshterms <- get("meshterms", envir = .meshesEnv, inherits = FALSE)
+    res <- meshterms[match(mesh_ids, meshterms$MESHID),
+                     c("MESHID", "MESHTERM"), drop = FALSE]
+    res$MESHID <- mesh_ids
+    missing <- is.na(res$MESHTERM) | !nzchar(res$MESHTERM)
+    if (any(missing)) {
+        ## Preserve a usable gene-set object for future descriptor additions
+        ## that are newer than the bundled NLM release.
+        res$MESHTERM[missing] <- res$MESHID[missing]
+        warning(sum(missing), " MeSH IDs have no bundled descriptor name; ",
+                "using the MeSH ID as the term label.", call. = FALSE)
+    }
+    res
+}
+
+
+#' Get the current organism-specific MeSHDb from AnnotationHub
 #'
-#' @param meshdbVersion version of MeSH.db. Using latest version if meshdbVersion was set to NULL
-#' @importFrom AnnotationHub AnnotationHub
-#' @importFrom AnnotationHub query
+#' @param meshdbVersion optional AnnotationHub release/tag to select
 #' @noRd
 get_meshdb <- function(meshdbVersion = NULL) {
     .meshesEnv <- get_mesh_env()
-    if (exists("meshdb", envir = .meshesEnv) &&
-        exists("meshdbVersion", envir = .meshesEnv)) {
-        meshdbVersion2 <- get('meshdbVersion', envir = .meshesEnv)
-        if (identical(meshdbVersion,  meshdbVersion2)) {
-            meshdb <- get("meshdb", envir = .meshesEnv)
-            return(meshdb)
+    if (exists("meshdb", envir = .meshesEnv, inherits = FALSE) &&
+        exists("meshdbVersion", envir = .meshesEnv, inherits = FALSE)) {
+        meshdbVersion2 <- get("meshdbVersion", envir = .meshesEnv)
+        if (identical(meshdbVersion, meshdbVersion2)) {
+            return(get("meshdb", envir = .meshesEnv))
         }
     }
-   
+
     ah <- AnnotationHub::AnnotationHub()
-    if (is.null(meshdbVersion)) {
-        dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db"))[[1]]
-    } else {
-        dbfile <- AnnotationHub::query(ah, c("MeSHDb", "MeSH.db", meshdbVersion))[[1]]
+    query_terms <- c("MeSHDb", "Homo sapiens")
+    if (!is.null(meshdbVersion)) {
+        query_terms <- c(query_terms, meshdbVersion)
     }
-    
-    meshdb <- MeSHDbi::MeSHDb(dbfile)
+    records <- AnnotationHub::query(ah, query_terms)
+    if (!length(records)) {
+        stop("No human MeSHDb record matched the requested release.",
+             call. = FALSE)
+    }
+
+    dates <- as.Date(records$rdatadateadded)
+    record_index <- if (all(is.na(dates))) length(records) else which.max(dates)
+    meshdb <- MeSHDbi::MeSHDb(records[[record_index]])
     assign("meshdb", meshdb, envir = .meshesEnv)
     assign("meshdbVersion", meshdbVersion, envir = .meshesEnv)
-    return(meshdb)
+    meshdb
 }
 
 

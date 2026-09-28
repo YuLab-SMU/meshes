@@ -16,10 +16,6 @@ importFrom(AnnotationDbi,
   metadata,
   select
 )
-importFrom(AnnotationHub,
-  AnnotationHub,
-  query
-)
 importFrom(GOSemSim,
   combineScores,
   get_organism,

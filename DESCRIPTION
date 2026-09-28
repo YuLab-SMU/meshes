@@ -1,7 +1,9 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.39.2
+Version: 1.39.3
 Authors@R: c(person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",   role = c("aut", "cre")))
+Author: Guangchuang Yu [aut, cre]
+Maintainer: Guangchuang Yu <guangchuangyu@gmail.com>
 Description: Provides tools for MeSH (Medical Subject Headings) enrichment and
 	     semantic similarity analysis. The package uses MeSH term annotations
 	     linked to Entrez Gene identifiers through gendoo, gene2pubmed and RBBH,

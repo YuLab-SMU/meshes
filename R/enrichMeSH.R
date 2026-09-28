@@ -87,8 +87,11 @@ get_MeSH_data <- function(MeSHDb, database, category) {
     mesh <- mesh[ mesh[,3] %in% category, ]
     mesh2gene <- mesh[, c(2,1)]
 
-    ## meshdb <- get_fun_from_pkg("MeSH.db", "MeSH.db")
-    mesh2name <- select(MeSHDb, keys=unique(mesh2gene[,1]), columns=c('MESHID', 'MESHTERM'), keytype='MESHID')
+    ## Current AnnotationHub MeSHDb records store mappings in DATA but do not
+    ## expose descriptor names as a MESHTERM column. The helper uses the
+    ## package's versioned NLM descriptor map in that case, while retaining
+    ## direct AnnotationDbi lookup for older MeSHDb releases.
+    mesh2name <- get_mesh_term_names(MeSHDb, unique(mesh2gene[, 1]))
 
     gson(gsid2gene = mesh2gene, 
         gsid2name = mesh2name, 
