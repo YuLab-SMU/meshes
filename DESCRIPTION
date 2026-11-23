@@ -1,6 +1,6 @@
 Package: meshes
 Title: MeSH Enrichment and Semantic analyses
-Version: 1.39.3
+Version: 1.40.0
 Authors@R: c(person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",   role = c("aut", "cre")))
 Author: Guangchuang Yu [aut, cre]
 Maintainer: Guangchuang Yu <guangchuangyu@gmail.com>
