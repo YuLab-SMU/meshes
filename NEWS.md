@@ -1,3 +1,7 @@
+# meshes 1.40.0
+
++ Bioconductor RELEASE_3_24 (2026-11-25, Wed)
+
 # meshes 1.39.2
 
 + `gseMeSH()` now exposes an `eps` argument and forwards it to `enrichit::gsea_gson()`, matching the other GSEA wrappers in the family (2026-09-22, Tue)
